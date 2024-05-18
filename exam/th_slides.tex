@@ -1,0 +1,793 @@
+\documentclass[landscape]{slides}
+\usepackage{amsmath, amsthm, float, def, enumerate, amsfonts, latexsym, amssymb}
+\usepackage{wasysym}
+% Try kdvi inverse search feature!
+%\usepackage[active]{srcltx}
+
+%\setlength{\partopsep}{-10 pt}\setlength{\topsep}{-10 pt}
+
+\title{Actions of Semitopological Semigroups on Hausdorff Spaces}
+\author{Alan Kydd}
+\date{December 9, 2004}
+\pagestyle{plain}
+
+\newtheorem{defn}{Definition}
+\newtheorem{theorem}[defn]{Theorem}
+\newtheorem{proposition}[defn]{Proposition}
+\newtheorem{corollary}[defn]{Corollary}
+\newtheorem{lemma}[defn]{Lemma}
+
+\begin{document}
+
+\maketitle
+
+%\begin{slide}
+%\textbf{Introduction}\\
+%A semigroup $G$ together with a Hausdorff topology for which multiplication
+%in $G$ is separately [resp. jointly] continuous is called a semitopological
+%[resp. topological] semigroup.
+%A jointly continuous action of $G$ on a topological Hausdorff space $X$ is
+%a jointly continuous map $(a,x) \mapsto ax$ from $G\times X$ into $X$, such that
+%$(ab)x = a(bx)$ for all $a$, $b\in G$ and $x\in X$, and such that the map 
+%$x\mapsto ax$, from $X$ 
+%into $X$, is continuous for each $a\in G$.
+
+%In the first half of this thesis we demonstrate that
+%when $G$ has a continuous left action on $X$, several common
+%subspaces of $CB(G)$ have analogues in $CB(X)$ which preserve
+%many of the properties of the original subspaces.
+%We define an action of the dual space of norm closed subspaces of 
+%$CB(G)$,
+%on the dual space of norm closed subspaces
+%of $CB(X)$.  We then consider the topological center of the action
+%of $LUC(G)^*$ on $LUC(G,X)^*$.
+%As an application of this action,
+%we examine the relationship between almost $G$-periodic points,
+%$G$-minimal sets, and elements of $\beta X$ that are in the
+%support of a $G$-invariant measure for $\beta X$.
+
+%The last chapter of this thesis investigates fixed point properties
+%of the action of a locally compact group $G$ on a locally convex 
+%topological space $X$.
+%We use Day's fixed point theorem to show the existence of an invariant
+%measure on coset spaces of certain groups.
+%When $H$ is a closed subgroup of $G$, we define a fixed point property 
+%for the pair $(G:H)$ such that the
+%action of $G$ on $X$ need not be jointly continuous.
+%We show that this fixed point property is
+%equivalent to a stronger fixed point property for $(G:H)$, defined by Eymard.
+
+%\end{slide}
+
+\begin{slide}
+{\large\textbf{Table of Contents}}
+\begin{list}{}{\itemsep -8 pt}
+\item[1.] Notation and Definitions
+\item[2.] Analysis on $G$-invariant spaces
+\begin{list}{}{\itemsep -8 pt \topsep -10 pt}
+\item[a.] Definitions
+\item[b.] $G$-invariant function spaces
+\item[c.] Arens action of $LUC(G)^*$ on $LUC(G,X)^*$
+\item[d.] $G$-minimal sets and $G$-invariant measures of $\beta X$
+\end{list}
+\item[3.] Fixed point properties
+\begin{list}{}{\itemsep -8 pt \topsep -10 pt}
+\item[a.] Existence of a $G$-invariant measure on coset spaces
+\item[b.] A Fixed Point Property for the pair $(G:H)$
+\end{list}
+\end{list}
+\end{slide}
+
+\begin{slide}
+{\large\bf{Notation and Definitions}}
+
+{\small
+A {\it semigroup} is a nonempty set $G$ together with an associative binary operation,
+which we usually call multiplication, from $G\times G$ into $G$.
+
+A semigroup $G$ together with a Hausdorff topology for which
+multiplication in $G$ is continuous from the left is called a 
+{\it right topological semigroup}.
+
+A semigroup $G$ together with a Hausdorff topology for which
+multiplication in $G$ is separately [resp. jointly] continuous is called a
+{\it semitopological} [resp. {\it topological}\,] {\it semigroup}.
+When the topology of $G$ is locally compact, $G$ is called a {\it locally compact semitopological}
+[resp. {\it topological}\,] {\it semigroup}.
+
+A group $G$ equipped with a Hausdorff topology is called a {\it topological group}
+if both multiplication and inversion are continuous.  When the topology of such a group is
+locally compact, we say $G$ is a {\it locally compact group}.
+
+$G$ shall always denote a semitopological semigroup, unless otherwise stated.
+$X$ shall always denote a Hausdorff topological space, and we write $X_d$ when $X$ has the discrete topology.}
+\end{slide}
+
+\begin{slide}
+%For any nonempty $X$,
+Let $X$ be any (nonempty) topological space.
+\[
+\ell^\infty(X) =\text{ all bounded complex-valued functions on }X.
+\]
+\[
+CB(X) = \text{ all bounded, continuous complex-valued functions on }X.
+\]
+\begin{align*}
+C_0 (X) = \{f\in CB(X): &\text{for every $\epsilon >0$, there exists a compact} \\
+&\text{subset $K\subset X$ (depending on $f$ and $\epsilon$)}\\
+&\text{such that $|f(x)| < \epsilon$ for every $x\in X\backslash K$}\}.
+\end{align*}
+\[
+C_c (X) = \{f\in CB(X):\text{$f$ has compact support}\}.
+\]
+\end{slide}
+
+\begin{slide}
+$\ell^\infty(X)$ is a commutative unital $C^*$-algebra with respect to the supremum norm
+\[
+\|f\|_\infty = \sup_{x\in X} |f(x)|,
+\]
+with pointwise addition and multiplication, and involution
+\[
+f^*(x) = \ol{f(x)}.
+\]
+
+$C_c(X) \subseteq C_0(X) \subseteq CB(X)$, with equality for compact $X$.
+
+Generally we always consider $CB(X)$ to have the
+supremum norm topology, noting that $CB(X_d) = \ell^\infty(X)$.
+\end{slide}
+
+\begin{slide}
+For any $f\in \ell^\infty(G)$ and $a\in G$, we denote the left and right translations
+of $f$ by $a$ by
+\begin{equation}\label{translations}
+\ell_a f(b) = f(ab),
+\end{equation}
+and
+\begin{equation}
+r_a f(b) = f(ba),
+\end{equation}
+for all $b\in G$.
+We denote the left and right orbits of $f$ by
+\[
+O_\ell f = \{ \ell_a f: a\in G \},
+\]
+and
+\[
+O_r f = \{ r_a f: a\in G \}.
+\]
+\end{slide}
+
+\begin{slide}
+A linear subspace $Y \subseteq \ell^\infty(G)$ is {\it left} [resp. {\it right}\,] {\it invariant} if
+$O_\ell f \subseteq Y$ [resp. $O_r f \subseteq Y$] for all $f\in Y$.  $Y$ is {\it invariant}
+if it is left and right invariant.
+
+Let $Y$ be a left [resp. right] invariant norm closed subspace of $\ell^\infty(G)$,
+and let $Y^*$ denote the dual space of $Y$.  $Y$ is {\it left} [resp. {\it right}\,] {\it introverted}
+if the function
+\begin{equation}\label{introversions}
+n_\ell f(g) = n(\ell_g f)\qquad \text{[resp. }n_r f(g) = n(r_g f)\text{]}
+\end{equation}
+is in $Y$ for each $n\in Y^*$.
+$Y$ is {\it introverted} if it is left and right introverted.
+\end{slide}
+
+\begin{slide}
+%{\small
+Let $X$ be an arbitrary set, let $Y$ be a norm closed subspace of $\ell^\infty(X)$
+containing the constant functions.
+Denote the identity function in $Y$ by $1_Y$.
+A {\it mean} on $Y$ is any $m\in Y^*$ such that $m(1_Y) = 1 = \|m\|$.
+We denote all means on $Y$ by $M(Y)$.
+
+Let $Y$ be a left [resp. right] invariant norm closed subspace of $\ell^\infty(G)$ containing the constant
+functions.  A mean $m\in Y^*$ is a {\it left} [resp {\it right}\,] {\it invariant mean}
+(LIM [resp. RIM]) if $m(\ell_g f) = m(f)$ [resp. $m(r_g f) = m(f)$] for all $g\in G$
+and $f\in Y$. We denote the set of all such means by $LIM(Y)$ [resp. $RIM(Y)$].
+$m$ is an {\it invariant mean} (IM) if $m$ is both a LIM and a RIM
+
+$G$ is said be to {\it left} [resp. {\it right}\,] {\it amenable} if there exists a LIM [resp. RIM] on $\ell^\infty(G)$.
+$G$ is {\it amenable} if there exists an IM on $\ell^\infty(G)$.
+A topological group $G$ is said to be
+{\it amenable as discrete} if there exists a LIM or a RIM for $\ell^\infty(G_d)$.
+%}
+\end{slide}
+
+\begin{slide}
+Let $Y$ be a left introverted subspace of $\ell^\infty(G)$.
+The {\it Arens product} is a map from $Y^* \times Y^*$ to $Y^*$ defined by:
+\[
+(m,n) \mapsto m\oodot n,
+\]
+where
+\[
+m\oodot n(f) = \langle m, n_\ell f\rangle
+\]
+for all $m$, $n\in Y^*$ and $f\in Y$.
+%Also,
+%\[
+%\|m\oodot n\| \leq \|m\|\|n\|.
+%\]
+
+When $Y$ is a right introverted subspace of $\ell^\infty(G)$,
+the {\it second Arens product} is defined for $Y^*$ by
+\[
+(m,n) \mapsto m\,\Box\,n,
+\]
+where
+\[
+m\,\Box\,n(f) = \langle m, n_r f\rangle.
+\]
+\end{slide}
+
+\begin{slide}
+Both products are associative, distributive and weak*-weak* continuous
+in the first variable.  Furthermore, $Y^*$ is a Banach algebra under either product.
+
+If $Y$ is a left [resp. right] introverted subspace of $\ell^\infty(G)$, then
+$Y^*$ is a right topological semigroup under the first [resp. second] Arens product.
+
+Let $Y$ be left $G$ introverted.  The {\it topological center} of $Y^*$ with respect
+to the first Arens product is
+\[
+Z_t(Y) = \{m\in Y^*:\text{ the map }n\mapsto m\oodot n\text{ is w*-w* continuous on }Y^*\}.
+\]
+
+Let $Y$ be introverted.  The {\it topological center} of $Y^*$ is defined to be
+\[
+Z_t(Y) = \{m\in Y^*:m\oodot n = m\,\Box\,n\text{ for all }n\in Y^*\}.
+\]
+$Y$ is called {\it Arens regular} when $Z_t(Y) = Y^*$.
+\end{slide}
+
+\begin{slide}
+{\large\bf{Analysis on $G$-invariant subspaces}}\\
+{\bf Definitions}\\
+\begin{defn}
+A jointly continuous action of $G$ on a topological Hausdorff space $X$ is
+a jointly continuous  map $(a,x) \mapsto ax$ from $G\times X$ into $X$, such that
+$(ab)x = a(bx)$ for all $a$, $b\in G$ and $x\in X$, and such that the map 
+$x\mapsto ax$, from $X$ 
+into $X$, is continuous for each $a\in G$.
+\end{defn}
+{\bf Example} Multiplication in a topological semigroup $S$
+can be viewed as a jointly continuous action of $S$ on itself.
+
+\end{slide}
+
+\begin{slide}
+Let $G$ have a jointly continuous action on $X$.\\
+\begin{defn}
+We denote the left translation of a function\linebreak $f\in \ell^\infty (X)$ by an element $a\in G$ by
+\[
+%\begin{equation}\label{left}
+\lambda_a f(x) = f(ax)
+%\end{equation}
+\]
+for all $x\in X$.
+We define an analogue to the right translation (defined
+in (\ref{translations})): for $f\in \ell^\infty(X)$ and $x\in X$, define the function
+\[
+%\begin{equation}\label{right}
+\rho_x f(a) = f(ax),
+%\end{equation}
+\]
+for all $a\in G$.\\
+\end{defn}
+\begin{defn}
+We define the left and right orbits of $f\in \ell^\infty(X)$ with respect to $G$ by
+\[
+O_\lambda f = \{ \lambda_a f: a\in G \},\qquad O_\rho f = \{ \rho_x f: x\in X \}.
+\]
+\end{defn}
+\end{slide}
+
+\begin{slide}
+\begin{defn}
+Consider a subspace of $CB(X)$ that is defined purely in terms of the action of $G$ on $X$
+and the topologies of $G$ and $X$ (i.e. defined independently of the algebraic structure of $X$, if any).
+Hereafter, we will always write such a subspace as $Y(G,X)$.  We define the
+{\it incident space of $Y(G,X)$} to be $Y(G,G)$, the subspace
+% other names for this space?  mutual/intermutial/paired/parallel/incident/twin
+of $CB(G)$ defined by the same conditions of $Y(G,X)$, with $X$ replaced by $G$.
+For convenience, we write $Y(G)$ for $Y(G,G)$.\\
+\end{defn}
+
+\begin{defn}
+A linear subspace $Y \subseteq \ell^\infty(X)$ is {\it left $G$ invariant} if
+$O_\lambda f \subseteq Y$ for all $f\in Y$.
+A subspace $Y(G,X)$ of $CB(X)$ is {\it right $X$ invariant} if
+$O_\rho f \subseteq Y(G)$ for all $f\in Y(G,X)$.
+$Y(G,X)$ is {\it invariant} if it is left $G$ and right $X$ invariant.\\
+\end{defn}
+\end{slide}
+
+\begin{slide}
+\begin{defn}
+Let $Y(G,X)$ be a norm closed, left $G$ invariant subspace of $CB(X)$, and
+let $n\in Y(G,X)^*$.
+$Y(G,X)$ is {\it left $G$ introverted}
+if the function
+\[
+%\begin{equation}\label{left-i}
+n_\lambda f(g) = n(\lambda_g f)
+%\end{equation}
+\]
+is in $Y(G)$ for all $f\in Y(G,X)$.
+When $Y(G,X)$ is a norm closed, right $X$ invariant subspace and $m\in Y(G)^*$,
+$Y(G,X)$ is {\it right $X$ introverted}
+if the function
+\[
+%\begin{equation}\label{right-i}
+m_\rho f(x) = m(\rho_x f)
+%\end{equation}
+\]
+is in $Y(G,X)$ for all $f\in Y(G,X)$.
+$Y(G,X)$ is {\it introverted} if it is left $G$ and right $X$ introverted.
+\end{defn}
+\end{slide}
+
+\begin{slide}
+\begin{defn}[Greenleaf]\label{aa}
+Let $Y$ be a left $G$-invariant, norm closed subspace of $\ell^\infty(X)$ containing the constant
+functions.  A mean $m\in Y^*$ is said to be a {\it left $G$-invariant mean} [GLIM] if
+$m(\lambda_g f) = m(f)$ for all $g\in G$ and $f\in Y$.  We denote the set of all such means by $GLIM(Y)$.
+$X$ is said to be {\it left amenable} if there exists a GLIM on $\ell^\infty(X)$.
+\end{defn}
+\end{slide}
+
+\begin{slide}
+\begin{defn}
+Let $Y_1(G,X)$ be a left introverted subspace of $CB(X)$.
+For $m\in Y_1(G)^*$, $n\in Y_1(G,X)^*$ and $f\in Y_1(G,X)$, the {\it left Arens action}
+of $Y_1(G)^*$ on $Y_1(G,X)^*$ is defined by the map
+\[
+(m,n) \mapsto m\odot n,
+\]
+where
+\[
+m\odot n(f) = \langle m, n_\lambda f\rangle.
+\]
+Let $Y_2(G,X)$ be a right introverted subspace of $CB(X)$, let
+$m\in Y_2(G)^*$, $n\in Y_2(G,X)^*$ and $f\in Y_2(G,X)$.  We similarly define
+the {\it right Arens action} of $Y_2(G)^*$ on $Y_2(G,X)^*$ by
+\[
+n\dotbox m(f) = \langle n, m_\rho f\rangle.
+\]
+\end{defn}
+\end{slide}
+
+\begin{slide}
+\begin{proposition}\label{arens:G-inv}
+Let $Y(G,X)$ be a left introverted subspace of $CB(X)$.
+The left Arens action of $Y(G)^*$ on $Y(G,X)^*$ has the following
+properties:
+\begin{list}{}{\itemsep -8pt \topsep -5pt}
+\item[(i)] If $n\in GLIM(Y(G,X))$, then for every $m\in M(Y(G))$,\linebreak $m\odot n = n$.
+\item[(ii)] $Y(G,X)^*$ is a left Banach-$Y(G)^*$ module.
+\item[(iii)] For any $g\in G$ and $x\in X$, $\delta_g\odot\delta_x = \delta_{gx}$.\\
+\end{list}
+\end{proposition}
+
+\begin{defn}
+Let $Y(G,X)$ be a left introverted subspace of $CB(X)$.
+We define the {\it topological center} of $Y(G,X)^*$ to be the set
+\[
+Z_Y = \{m\in Y(G)^*:n\mapsto m\odot n\text{ is w*-w* continuous on }Y(G,X)^*\}.
+\]
+\end{defn}
+\end{slide}
+
+\begin{slide}
+\bf{$G$-invariant function spaces}\\
+\begin{defn}
+A function $f\in CB(X)$ is {\it almost periodic} 
+if $O_\lambda f$ is relatively compact in the norm topology of $CB(X)$
+(equivalently, if $O_\rho f$ is relatively compact in the norm topology
+of $CB(G)$).  We
+denote the space of all such functions $AP(G,X)$.\\
+\end{defn}
+
+
+\begin{defn}
+A function $f\in CB(X)$ is {\it weakly almost periodic} 
+if $O_\lambda f$ is relatively compact in the weak topology of $CB(X)$
+(equivalently, if $O_\rho f$ is relatively compact in the weak topology
+of $CB(G)$).  We
+denote the space of all such functions $WAP(G,X)$.\\
+\end{defn}
+
+
+\begin{defn}
+A function $f\in CB(X)$ is called {\it left uniformly continuous} if the
+map $a\mapsto\lambda_a f$ from $G$ into $CB(X)$ is continuous.
+We denote the set of all such functions by $LUC(G,X)$.
+\end{defn}
+\end{slide}
+
+\begin{slide}
+\begin{theorem}
+$AP(G,X)$ is the largest involution closed, introverted $C^*$-subalgebra of $CB(X)$
+containing the constant functions such that $m\odot n = n\dotbox m$, and such that
+$(m,n)\mapsto m\odot n$ is jointly continuous on bounded subsets.\\
+\end{theorem}
+
+\begin{theorem}
+$WAP(G,X)$ is the largest involution closed, invariant, left introverted $C^*$-subalgebra of $CB(X)$
+containing the constant functions such that the subalgebra is introverted, $m\odot n = n\dotbox m$, and such that
+$(m,n)\mapsto m\odot n$ is separately continuous.\\
+\end{theorem}
+
+\begin{theorem}
+$LUC(G,X)$ is an invariant left introverted $C^*$-subalgebra of $CB(X)$ containing the constant
+functions.
+\end{theorem}
+\end{slide}
+
+\begin{slide}
+\begin{itemize}
+\item $AP(G,X) \subset WAP(G,X)$
+\item $AP(G,X) \subset LUC(G,X)$
+\item If $G$ is a locally compact group, then $WAP(G,X) \subset LUC(G,X)$.
+\item $f\in WAP(G,X) \Leftrightarrow \lim_i \lim_j f(g_i x_j) = \lim_j \lim_i f(g_i x_j)$ for sequences $\{g_i\}\subset G$ and $\{x_j\}\subset X$,  whenever all limits exist.
+\end{itemize}
+\end{slide}
+
+\begin{slide}
+{\bf Arens action of the Banach algebra $LUC(G)^*$ on $LUC(G,X)^*$}
+
+Using ideas of Lau and Wong, we prove that the measure algebra
+$\mathcal{M}(G)$ is a subset of $Z_{LUC}$.
+
+Let $Z$ denote the set of all $m\in LUC(G)^*$ such that the function $m_\rho f$ is in $LUC(G,X)$
+for all $f\in LUC(G,X)$, with $m\odot n = n\dotbox m$ for all $n\in LUC(G,X)^*$.\\
+
+\begin{lemma}\label{lau:arens}
+Let $m \in LUC(G)^*$.  The following are equivalent:
+\begin{list}{}{\itemsep -8pt \topsep -8pt}
+\item[(i)] $m\in Z$.
+%\item The map $n\mapsto m\odot n$ is weak*-weak* continuous.
+\item[(ii)] $m\in Z_{LUC}$.
+\item[(iii)] The map $n\mapsto m\odot n$ is weak*-weak* continuous on norm bounded subsets of $LUC(G,X)^*$.
+\end{list}
+\end{lemma}
+\end{slide}
+
+\begin{slide}
+For any locally compact space $X$, let $\tau_X$ denote the locally convex topology on $\mathcal{M}(X)$
+determined by the family of seminorms $\{p_f : f\in LUC(G,X)\}$, where
+$p_f (\mu) =| \int f\:d\mu|$, $\mu\in \mathcal{M}(X)$.\\
+
+\begin{lemma}\label{wong}
+Let $G$ be a locally compact semitopological semigroup with jointly continuous action
+on a locally compact Hausdorff space $X$.
+\begin{list}{}{\itemsep -6pt \topsep -6pt}
+\item[(i)] For every $\mu\in \mathcal{M}(G)$, the map $n \mapsto {\mu}\odot n$ is weak*-weak* continuous on norm bounded subsets of $LUC(G,X)^*$.
+\item[(ii)] For every $n\in LUC(G,X)^*$, the map $\mu\mapsto {\mu}\odot n$ is $\tau_G$-weak* continuous.
+\item[(iii)] For $\mu\in \mathcal{M}(G)$, $\nu\in \mathcal{M}(X)$, ${\mu}\odot{\nu}(f) = \langle\mu * \nu, f\rangle$ for all $f\in C_0(X)$.
+\item[(iv)] $n\in GLIM(LUC(G,X))$ if and only if ${\mu}\odot n = n$ for any $\mu\in \mathcal{M}_0 (G) = \{\mu\in \mathcal{M}(G) : \mu \geq 0, \|\mu\| = 1\}$.
+%\item $LUC(G,X)$ has a $G$-invariant mean iff there is a net $\{\nu_\alpha \}$ in $M_0 (X)$ such that
+%$\mu * \nu_\alpha - \nu_\alpha \rightarrow 0$ in the $\tau$ topology of $M(X)$ for any $\mu \in M_0 (G)$.
+\end{list}
+\end{lemma}
+\end{slide}
+
+\begin{slide}
+{\bf Main Result}\\
+\begin{theorem}\label{wong2}
+Let $G$ be a locally compact semitopological semigroup with jointly continuous action
+on a locally compact Hausdorff space X. If $\mu \in \mathcal{M}(G)$, then ${\mu} \in Z_{LUC}$.
+\end{theorem}
+\proof
+By Lemma~\ref{wong} (i), the map ${\mu} \mapsto m\odot {\mu}$ is weak*-weak* continuous on norm bounded subsets
+of $LUC(G,X)^*$.  By Lemma~\ref{lau:arens}, ${\mu} \in Z_{LUC}$.
+\done
+\end{slide}
+
+\begin{slide}
+{\bf Remarks}
+
+In \emph{Continuity of {A}rens multiplication on the dual space of
+  bounded uniformly continuous functions on locally compact groups and
+  topological semigroups} (Math. Proc. Cambridge Philos. Soc. \textbf{99}
+  (1986), 273--283), Lau
+proved that if $G$ is either a locally compact group or a cancellative discrete semigroup
+and $X=G$, then $Z_{LUC} = \mathcal{M}(G)$.
+
+Recently, Neufang, in his paper \emph{On a unified approach to the topological center problem for
+  certain {B}anach algebras arising in abstract harmonic analysis} (Arch. Math.
+  (Basel) \textbf{82} (2004), no.~2, 164--171),
+used a different technique to prove the same result when $G$ is a locally compact group.
+\end{slide}
+
+\begin{slide}
+{\bf $G$-minimal sets and $G$-invariant measures for $\beta X$}
+
+Let $G$, $X$ be discrete.  $(\kappa, \beta X) =$ the Stone-\u{C}ech compactification
+of $X$.  We identify $\kappa (x) \in \beta X$ with $\delta_x \in \ell^\infty (X)^*$.
+
+The left action of $G$ on $X$ extends to an action of $G$ on $\beta X$:
+\[
+(a, n) \mapsto \kappa (a) \odot n.
+\]
+Notation:\\
+For fixed $n\in \beta X$,
+$\kappa(G) \odot n = \{\kappa(g) \odot n : g\in G\}$.\\
+For fixed $g\in G$ and any $U\subset \beta X$,
+$\kappa(g) \odot U = \{\kappa(g) \odot n: n\in U\}$.
+If $K\subset G$ and $U\subset \beta X$,
+\[
+\{\kappa(K)\}^{-1} \odot U = \{ n\in \beta X : \kappa(k) \odot n \in U\text{ for some }k\in K\}.
+\]
+If $A\subset G$ and $K$ is as above,
+\[
+\{K\}^{-1}A = \{g\in G: kg\in A\text{ for some }k\in K\}.
+\]
+\end{slide}
+
+\begin{slide}
+We have an isometric $*$-isomorphism $T$ from $C_c (\beta X) = CB(\beta X)$ onto $\ell^\infty (X)$,
+$\tilde{f}\mapsto f$, where
+\[
+f(x) = \tilde{f}(\kappa(x)),
+\]
+for $\tilde{f}\in C_c (\beta X)$ and $x\in X$.  We identify
+$CB(\beta X)^*$ with $\mathcal{M}(\beta X)$ in the usual way:
+\[
+\langle T^*n, \tilde{f}\rangle = \int\tilde{f}\:d(T^*n).\\
+\]
+
+
+\begin{proposition}\label{probmeas}
+$n\in GLIM(\ell^\infty(X))$ if and only if
+$T^* n$ is a probability measure on $\beta X$ such that
+$(T^*n)(\{\kappa(g)\}^{-1} \odot U) = (T^*n)(U)$ for all $g\in G$ and Borel sets $U\subset \beta X$.\\
+\end{proposition}
+
+\begin{defn}
+Let $n\in \ell^\infty(X)^*$.  $T^*n$ is called $G$-{\it invariant} if $n \in GLIM(\ell^\infty(X))$.
+\end{defn}
+\end{slide}
+
+\begin{slide}
+\begin{defn}
+$n \in \beta X$ is called {\it left almost $G$-periodic} if for every neighbourhood $U$ of $n$
+there exists a subset $A \subset G$ such that there is a finite subset $K \subset G$ with
+$G = \{K\}^{-1}A$ and $\kappa(A) \odot n \subset U$.  We denote the set of all almost
+$G$-periodic elements in $\beta X$ by $A^{G,X}$.\\
+\end{defn}
+
+\begin{defn}
+A nonempty subset $U$ of $\beta X$ is called $G$-{\it invariant} if $\kappa(g) \odot U \subset U$ for all
+$g\in G$.  $U$ is called $G$-{\it minimal} if it is closed and minimal with respect to this property.
+We denote the elements of $\beta X$ which belong to a $G$-minimal set by $B^{G,X}$.
+\end{defn}
+
+We denote by $K^{G,X}$ the elements in $\beta X$ which are in the support of some $G$-invariant
+measure.\\
+
+%\begin{example}
+%Take $n\in \beta X$.  Clearly, for all $a\in G$,
+%$\kappa(a) \odot \kappa(G) \odot n \subset \kappa(G) \odot n$.  Thus, $\ol{\kappa(G) \odot n}$
+%is a closed $G$-invariant set.
+%\end{example}
+\end{slide}
+
+\begin{slide}
+\begin{proposition}\label{fairchild2.1}
+Let $n\in GLIM(\ell^\infty(X))$.  Then $\supp (T^*n)$ is a $G$-invariant set.\\
+\end{proposition}
+
+\begin{proposition}~\label{w&w}
+Let $n\in M(\ell^\infty(X))$, and let $U$ be a closed subset of $\beta X$.
+Then $\supp(T^*n) \subset U$ if and only if $n\in\ol{\conv U}$.
+\end{proposition}
+{\bf Main Results}\\
+\begin{theorem}\label{fairchild3.1}
+$A^{G,X} = B^{G,X}$.\\
+\end{theorem}
+
+\begin{corollary}
+When $G$ acts amenably on $X$, $A^{G,X} \subset K^{G,X}$.
+\end{corollary}
+\end{slide}
+
+\begin{slide}
+We now find conditions on $X$ and $G$ that imply $K^{G,X}\backslash A^{G,X} \neq \emptyset$.
+We need the following definition:\\
+
+\begin{defn}
+For $A \subset X$, let
+\[
+d(A) = \sup\:\{ m(\chi_A) : m\in GLIM(\ell^\infty(X)) \}.
+\]
+$A$ is called a {\it C-subset} for the pair  $(G,X)$ if $d(A) > 0$ and $d(\{K\}^{-1}A) < 1$ for all
+finite $K\subset G$.\\
+\end{defn}
+
+%\begin{lemma}\label{fairchild3.3}
+%Let $A \subset X$, $g\in G$.  Then
+%\[
+%\{\kappa(g)\}^{-1} \odot \ol{\kappa(A)} = \ol{ \{\kappa(g)\}^{-1} \odot \kappa(A)} = \ol{\kappa(\{g\}^{-1}A)}.\\
+%\]
+%\end{lemma}
+
+%\begin{theorem}\label{fairchild2.0}
+%If left amenable $G$ acts on $X$ and $U$ is a closed $G$-invariant
+%subset of $\beta X$, then for each $n\in U$ and $m\in LIM(\ell^\infty(G))$, $T^*(m\odot n)$
+%is a $G$-invariant measure with $\supp (T^*(m\odot n)) \subset U$.
+%\end{theorem}
+%\end{slide}
+
+%\begin{slide}
+
+\begin{theorem}
+If $G$ is left amenable and $(G,X)$ has a C-subset $A$, then $\ol{\kappa(A)}\cap\ol{A^{G,X}} = \emptyset$ and
+$\ol{\kappa(A)}\cap K^{G,X} \neq \emptyset$.  Thus $A^{G,X} \subsetneq K^{G,X}$.\\
+\end{theorem}
+
+\begin{proposition}
+Let $G$ be left amenable.  Suppose that the pair $(G,X)$ has no C-subsets.
+Then $K^{G,X} \subset \ol{A^{G,X}}$.
+\end{proposition}
+\end{slide}
+
+\begin{slide}
+{\large \bf{Fixed Point Properties}}\\
+Let $G$ be a locally compact group, let $H$ be a closed subgroup of $G$.
+The coset space $G/H = \{xH: x\in G\}$.  The space $G/H$ admits a
+quasi-invariant measure $\lambda$.
+\[
+L^\infty(G/H) = \text{ ess. bdd. $\lambda$-measurable $\mathbb{C}$-valued functions on }G/H,
+\]
+with norm
+\begin{align*}
+\|f\| &= \text{ess.}\sup_{x\in G} |f(x)|\\
+&= \inf\{\alpha>0:\{g\in G:|f(g)| > \alpha\}\text{ is locally null}\}\}.
+\end{align*}
+
+
+An affine transformation from a vector space $V$ to itself is a map $T$
+such that
+\[
+T(\alpha x + (1-\alpha)y) = \alpha T(x) + (1-\alpha)T(y)
+\]
+for all $x,y\in V$ and scalars $\alpha$.
+\end{slide}
+
+\begin{slide}
+{\bf Existence of a $G$-invariant measure on coset spaces}
+
+We prove, using Day's fixed point theorem in
+\emph{Fixed-point theorems for compact convex sets} (Illinois J. Math.
+  \textbf{5} (1961), 585--589),
+that $G/H$ admits a regular Borel measure $\mu$ on the coset space $G/H$ such that $\mu(gE) = 
+\mu(E)$ for all $g \in G$ and all Borel sets $E$ of $G/H$.  The proof uses an idea
+of Izzo in the proof of the existence of the Haar measure on locally compact
+Abelian groups using the Markov-Kakutani fixed point theorem, found in
+\emph{On certain actions of semi-groups on ${L}$-spaces} (Studia
+  Math. \textbf{29} (1967), 63--77).
+\end{slide}
+
+\begin{slide}
+\begin{theorem}[Day's Fixed Point Theorem]
+Let $K$ be a compact, convex subset of a locally convex Hausdorff 
+topological vector space.  Let $S$ be a semigroup of affine continuous 
+transformations of $K$ into itself.  If $S$ is amenable as a discrete 
+semigroup, then there exists $k \in K$ such that $Tk=k$ for all $T 
+\in S$.\\
+\end{theorem}
+
+\begin{lemma}\label{ginv:1}
+Let $G$ be a topological group and let $U$ be a symmetric neighbourhood of 
+the identity in $G$.  There exists $V \subset G$ such that for 
+each $g \in G$, the set $gUU$ contains at least one element of 
+$V$, and such that the set $gU$ contains at most one element of $V$.\\
+\end{lemma}
+
+\begin{lemma}\label{ginv:2}
+Let $X$ be a vector space.
+If $K$ is a weak* closed subset of $X^*$ such that for each $x \in X$ the set 
+$\{\phi(x):\phi\in K\}$ is bounded, then $K$ is compact.
+\end{lemma}
+\end{slide}
+
+\begin{slide}
+{\bf Main Result}\\
+\begin{theorem}\label{coset}
+Let $G$ be a locally compact group which is amenable as a discrete group,
+and let $H$ be a closed subgroup of $G$.  Then $G/H$ admits a $G$-invariant
+measure.
+\end{theorem}
+\end{slide}
+
+\begin{slide}
+\proof
+For each $a \in G$, define $T_a: C_c(G/H)^*\to C_c(G/H)^*$ by
+\[
+\langle T_a,\phi\rangle(f) = \phi(\lambda_a f)
+\]
+Each $T_a$ is continuous and affine, and $S = \{T_a : a\in G \}$ is a 
+representation of $G$.
+
+Fix a symmetric neighbourhood $U$ of the identity in $G$ such that $\ol{U}$ is compact.
+Let $K$ be all positive linear functionals $\phi \in C_c(G/H)^*$ which satisfy:
+\begin{list}{}{\itemsep -6pt \topsep -5pt}
+\item $\phi(f) \leq 1$ for all nonnegative $f \in C_c(G/H)$ that are 
+bounded 
+above by 1 and supported in $(xU)H = \{(xu)H: u\in U\}$ for some $x \in G$, and
+\item $\phi(f) \geq 1$ for all nonnegative $f \in C_c(G/H)$ that are equal 
+to 1 on $(xUU)H = \{(xuv)H: u,v\in U\}$ for some $x \in G$.
+\end{list}
+\end{slide}
+
+\begin{slide}
+$K$ is weak* closed and convex.  For each $f \in C_c(G/H)$, the set 
+$\{\phi(f):\phi\in K\}$ is bounded.  By Lemma~\ref{ginv:2}, $K$ 
+is weak* compact.
+Take $V$ as in Lemma~\ref{ginv:1}.
+The functional
+\[
+\psi : f \mapsto \sum_{v\in V} f(vH).
+\]
+is in $K$.
+
+It follows, from the definition of $K$, that $T_a$ maps $K$ onto itself.
+By Day's fixed point theorem, $S = \{T_a: a\in G\}$ has a common 
+fixed point in $K$.
+\done
+\end{slide}
+
+\begin{slide}
+{\bf A Fixed Point Property for the pair $(G:H)$}
+
+Eymard defined the following fixed point property for the pair\linebreak$(G:H)$ in
+\emph{Moyennes invariantes et repr\'{e}sentations unitaries}
+(Lecture Notes in Mathematics, vol. 300, Springer-Verlag, Berlin, 1972).\\
+\begin{defn}\label{fpp}
+The pair $(G:H)$ is said to have the {\it fixed point property} (FPP) if every jointly continuous
+affine action of $G$ on a compact convex subset $K$ of a locally convex
+topological space $X$ which has a fixed point for $H$ also has a fixed point for $G$.
+\end{defn}
+Furthermore, Eymard proved that there exists a GLIM on $L^\infty(G/H)$ if and only if $(G:H)$
+has the FPP.
+\end{slide}
+
+\begin{slide}
+In \emph{A remark on groups with the fixed point property} (Proc. Amer.
+  Math. Soc. \textbf{23} (1972), no.~2, 623--624),
+Simon considered the following weaker condition of the action of $G$ on $K$.\\
+\begin{defn}
+A {\it weakly measurable affine action} of $G$ on a compact convex subset $K$ of a locally
+convex topological space $X$ is a representation of $G$ by continuous affine maps
+$\alpha_g : K \rightarrow K$ such that for each $\phi \in X^*$ and $x\in K$, the map
+$g\mapsto \langle\phi, \alpha_g (x)\rangle$ is measurable.
+\end{defn}
+
+We define a second fixed point property for the pair $(G:H)$.\\
+\begin{defn}
+The pair $(G:H)$ is said to have the
+FPP2 if every weakly
+measurable affine action of $G$ on a compact convex subset $K$ of a locally convex
+topological space $X$ which has a fixed point for $H$ also has a fixed point for $G$.
+\end{defn}
+\end{slide}
+
+\begin{slide}
+{\bf Main Result}\\
+\begin{theorem}
+For $G$ a locally compact group with a closed subgroup $H$, the following are equivalent:
+\begin{list}{}{\itemsep -6pt \topsep -8pt}
+\item[(i)] There exists a GLIM on $L^\infty (G/H)$.
+\item[(ii)] $(G:H)$ has the FPP2.
+\item[(iii)] $(G:H)$ has the FPP.
+\item[(iv)] There exists a GLIM on $LUC(G,G/H)$.
+\end{list}
+\end{theorem}
+
+\end{slide}
+%%end
+
+\end{document}

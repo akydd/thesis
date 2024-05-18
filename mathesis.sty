@@ -1,0 +1,433 @@
+%%% Classification: LaTex style file
+%%%	Filename: mathesis.sty
+%%%	Version: Final 
+%%%	Author: Hongtao Yang [modified by Alan Kydd]
+%%%	Date: September, 2000 
+%%%	Copyright: No copyright. But a thanks to the author is welcome.
+%%%	Abstract: This style file is written according to the requirement of 
+%%%		  thesis format of the University of Alberta 
+\typeout{a thesis style file for Department of Math & Stat Sciences,}  
+\typeout{University of Alberta written by Hongtao Yang}
+
+\usepackage{amsmath, amsthm, float, latexsym, amssymb}
+ 
+\hfuzz2pt % Don't bother to report over-full boxes if over-edge is < 2pt
+
+% Define environments of theorem, proposition,...
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\theoremstyle{definition}
+\newtheorem{defn}[theorem]{Definition}
+
+%\theoremstyle{}
+\newtheorem{example}[theorem]{Example}
+
+\restylefloat{figure}
+\restylefloat{table}
+
+% Number equations within chapter. If equations want to be numbered within
+% section,then you should use:
+%			\renewcommand{\theequation}{\thesection.\arabic{equation}}
+% and should set equation counter to be 0 at the beginning of each section by
+%			\setcounter{equation}{0}
+\renewcommand{\theequation}{\thechapter.\arabic{equation}}
+
+% New if constructs:		 Default conditions:
+\newif\iffigurespage		 \figurespagetrue
+\newif\iftablespage			 \tablespagetrue
+\newif\ifsymbolspage		 \symbolspagetrue
+\newif\ifprefacepage		 \prefacepagefalse
+\newif\ifquotepage		 \quotepagefalse
+\newif\ifdedicationpage		 \dedicationpagefalse
+\newif\ifacknowledgementpage	 \acknowledgementpagefalse
+\newif\iffieldofstudy			 \fieldofstudyfalse
+\newif\iftwo@supervisors		 \two@supervisorsfalse
+\newif\ifsecond@committeemember  \second@committeememberfalse
+\newif\ifthird@committeemember	 \third@committeememberfalse
+\newif\iffourth@committeemember	 \fourth@committeememberfalse
+\newif\iffifth@committeemember	 \fifth@committeememberfalse
+
+
+% Define \BeginTopMatter to number pages in \roman before Chapter 1 and
+% \EndTopMatter to number pages in Arabia from Chapter 1
+\def\beforebodyoftex{
+    \newpage
+    \setcounter{page}{1}
+    \renewcommand{\thepage}{}
+    \pagestyle{plain}
+    \thispagestyle{empty}
+}
+
+\def\beginbodyoftex{
+    \newpage
+    \setcounter{page}{1}
+    \renewcommand{\thepage}{\arabic{page}}
+}
+
+
+\renewcommand\contentsname{Table of Contents}
+
+% Redefine \thebibliography to go to a new page and put an entry in the
+% table of contents
+
+%\let\@ldthebibliography\thebibliography
+%\renewcommand{\thebibliography}[1]{%
+%    \newpage
+%    \addcontentsline{toc}{chapter}{Bibliography}
+%    \@ldthebibliography{#1}
+%}
+
+%\let\@ldbibliography\bibliography
+%\renewcommand{\bibliography}[1]{\ifprint@bib\@ldbibliography{#1}\fi}
+
+% Define \listfigures to list figures
+\newcommand\listfigures{\figurespagetrue}
+
+% Define \listtables to list tables
+\newcommand\listtables{\tablespagetrue}
+
+% Define \listsymbols to list symbols
+\newcommand\listsymbolname{List of Symbols}
+\newcommand\listsymbols{\symbolspagetrue}
+
+% \author, \title are defined in report; here are the rest of the
+% front matter defining macros
+\def\gradyear#1{\gdef\@gradyear{#1}}
+\def\fieldofstudy#1{\gdef\@fieldofstudy{#1}\fieldofstudytrue}
+\def\copyrightyear#1{\gdef\@copyrightyear{#1}} % \author, \title in report
+\def\degree#1{\gdef\@degree{#1}}
+\def\convocationdate#1{\gdef\@convocationdate{#1}}
+\def\fileforabstract#1{\gdef\@fileforabstract{#1}}
+\def\fileforquote#1{
+    \gdef\@fileforquote{#1}
+    \quotepagetrue}
+\def\fileforacknowledgement#1{
+    \gdef\@fileforacknowledgement{#1}
+    \acknowledgementpagetrue}
+\def\fileforpreface#1{
+    \gdef\@fileforpreface{#1}
+    \prefacepagetrue}
+\def\filefordedication#1{
+    \gdef\@filefordedication{#1}
+    \dedicationpagetrue}
+
+\def\@title{}
+\def\@convocationdate{}
+\def\@author{}
+\def\@gradyear{}
+\def\@fieldofstudy{}
+\def\@fileforquote{}
+\def\@fileforabstract{}
+\def\@fileforacknowledgement{}
+\def\@fileforpreface{}
+\def\@filefordedication{}
+
+\def\examchair#1{\gdef\@examchair{#1}}
+\def\supervisor#1{\gdef\@supervisor{#1}}
+\def\cosupervisor#1{\gdef\@cosupervisor{#1}\two@supervisorstrue}
+\def\firstcommitteemember#1{\gdef\@firstcommitteemember{#1}}
+\def\firstcommitteememberdept#1{\gdef\@firstcommitteememberdept{#1}}
+\def\secondcommitteemember#1{
+    \gdef\@secondcommitteemember{#1}
+    \second@committeemembertrue}
+\def\thirdcommitteemember#1{
+    \gdef\@thirdcommitteemember{#1}
+    \third@committeemembertrue}
+\def\fourthcommitteemember#1{
+    \gdef\@fourthcommitteemember{#1}
+    \fourth@committeemembertrue}
+\def\fifthcommitteemember#1{
+    \gdef\@fifthcommitteemember{#1}
+    \fifth@committeemembertrue}
+
+\def\@supervisor{}
+\def\@cosupervisor{}
+\def\@firstcommitteemember{}
+\def\@secondcommitteemember{}
+\def\@thirdcommitteemember{}
+\def\@fourthcommitteemember{}
+\def\@fifthcommitteemember{}
+
+%  library release form page
+\def\libraryreleaseform{
+    \newpage
+    \thispagestyle{empty}
+    \ \vskip2.5mm
+    \noindent
+    \begin{center}{\bf
+      \bf University of Alberta\\[3mm]
+      \bf Library Release Form}
+    \end{center}
+    \vskip1cm
+    {\raggedright
+        \noindent
+        {\bf Name of Author:} \@author \medskip
+
+        \noindent
+        {\bf Title of Thesis:} \@title \medskip
+
+        \noindent
+        {\bf Degree:} \@degree \medskip
+
+        \noindent
+        {\bf Year This Degree Granted:} \@gradyear \newline
+    }
+    \medskip
+
+    \noindent
+    Permission is hereby granted to the University of Alberta Library
+    to reproduce single copies of this thesis and to lend or sell
+    such copies for private, scholarly, or scientific research purposes
+    only.
+    \medskip
+
+    \noindent
+    The author reserves all other publication and other rights in
+    association with the copyright in the thesis, and except as
+    herein before provided, neither the thesis nor any substantial portion
+    thereof may be printed or otherwise reproduced in any material form
+    whatever without the author's prior written permission.
+
+    \vskip1cm
+    \begin{flushright}
+    \begin{tabular}{l}
+          \hrulefill\hskip1cm\ \\
+          Department of Mathematical and Statistical Sciences\hskip1cm\ \\
+          University of Alberta\\
+          Edmonton, Alberta\\
+          Canada, T6G 2G1\\
+    \end{tabular}
+    \end{flushright}
+    \vskip5mm
+
+    \noindent
+    Date:
+}
+ 
+% title page
+\def\titlepage{
+    \newpage
+    \thispagestyle{empty}
+    \ \vskip5mm
+    \centerline{\bf University of Alberta}
+    \vskip1cm
+    \begin{center}{\large\bf\MakeUppercase\@title}\end{center}
+    \vskip5mm
+    \centerline{by}
+    \vskip3mm
+    \centerline{\large\@author}
+    \vskip4cm
+    \centerline{A thesis submitted to the Faculty of
+    Graduate Studies and Research}
+    \centerline{in partial fulfillment of the requirements for the degree of}
+    \centerline{\@degree}
+    \vskip3mm
+    \iffieldofstudy
+      \centerline{in}
+      \vskip3mm
+      \centerline{\@fieldofstudy}
+    \fi
+    \vskip1cm
+    \centerline{Department of Mathematical and Statistical Sciences}
+    \vskip1.5cm
+    \centerline{Edmonton, Alberta}
+    \centerline{\@convocationdate}
+}
+
+% signature page
+\def\signaturepage{
+    \newpage
+    \thispagestyle{empty}
+    \centerline{\bf University of Alberta}
+    \vskip3mm
+    \centerline{\bf Faculty of Graduate Studies and Research}
+    \vskip5mm
+    \noindent
+    The undersigned certify that they have read, and recommend to the Faculty
+    of Graduate Studies and Research for acceptance, a thesis entitled
+    {\bf\@title} submitted by {\bf\@author}
+    in partial fulfillment of the requirements for the degree of
+    {\bf\@degree} in {\bf\@fieldofstudy}.
+
+    \vskip1.5cm
+    \hfill
+    \parbox[b]{3in}{\shortstack{\vrule width 3in height 0.4pt\\
+    \@examchair\ (Chair)}}
+
+    \vskip1.3cm
+    \hfill
+    \parbox[b]{3in}{\shortstack{\vrule width 3in height 0.4pt\\
+    \@supervisor\ (Supervisor)}}
+
+    \iftwo@supervisors
+      \vskip1.3cm
+      \hfill
+      %\parbox[b]{2in}{\smash{\ \hskip2.1cm Co-supervisor:}\vskip16pt}
+      \parbox[b]{3in}{\shortstack{\vrule width 3in height 0.4pt\\
+            \@cosupervisor\ (Co-Supervisor)}}
+    \fi
+
+    \vskip1.3cm
+    \hfill
+    %\parbox[b]{2in}{\smash{\ \hskip0.7cm Examining Committee:}\vskip16pt}
+    \parbox[b]{3in}{\shortstack{\vrule width 3in height 0.4pt\\
+    \@firstcommitteemember\ (\@firstcommitteememberdept)}}
+
+    \ifsecond@committeemember
+        \vskip1.3cm
+        \hfill
+        \parbox[b]{3in}{\shortstack{\vrule width 3in height 0.4pt\\
+            \@secondcommitteemember}}
+    \else
+        \vskip1.3cm
+    \fi
+
+    \ifthird@committeemember
+        \vskip1.3cm
+        \hfill
+        \parbox[b]{3in}{\shortstack{\vrule width 3in height 0.4pt\\
+             \@thirdcommitteemember}}
+    \else
+        \vskip1.3cm
+    \fi
+
+    \iffourth@committeemember
+        \vskip1cm
+        \hfill
+        \parbox[b]{3in}{\shortstack{\vrule width 3in height 0.4pt\\
+                  \@fourthcommitteemember}}
+    \else
+        \vskip1.3cm
+    \fi
+
+    \iffifth@committeemember
+         \vskip1.3cm
+         \hfill
+         \parbox[b]{3in}{\shortstack{\vrule width 3in height 0.4pt\\
+              \@fifthcommitteemember}}
+    \else
+         \vskip1.3cm
+    \fi
+
+    \vskip1.5cm
+    \noindent
+    Date:
+}
+
+% dedication page
+\def\dedicationpage{
+    \ifdedicationpage
+      \newpage
+      \thispagestyle{empty}
+      \ \vspace{2 in}
+      %\begin{center}{\large\bf{Dedication}}\end{center}
+      \input \@filefordedication.tex
+    \fi
+}
+
+% quote page
+\def\quotepage{
+    \ifquotepage
+      \newpage
+      \thispagestyle{empty}
+      \ \vspace{2 in}
+      \input \@fileforquote.tex
+    \fi
+}
+
+% abstract page
+\def\abstract{
+    \newpage
+    \thispagestyle{empty}
+    \centerline{\large\bf\MakeUppercase{Abstract}}
+    \vskip0.5in
+    \input \@fileforabstract.tex
+}
+
+% acknowledgement page
+\def\acknowledgement{
+    \ifacknowledgementpage
+      \newpage
+      \thispagestyle{empty}
+      \centerline{\large\bf\MakeUppercase{Acknowledgement}}
+      \vskip0.5in
+      \input \@fileforacknowledgement.tex
+    \fi
+}
+
+% preface page
+\def\preface{
+    \ifprefacepage
+      \newpage
+      \thispagestyle{empty}
+      \centerline{\large\bf\MakeUppercase{Preface}}
+      \vskip0.5in
+      \input \@fileforpreface.tex
+    \fi
+}
+
+\def\mathstyle{
+    \thispagestyle{empty}
+    \noindent
+    {\tt\large This thesis is prepared by using the style file mathesis.sty 
+    written by Hongtao Yang for {\rm \LaTeX} according to the requirement 
+    of thesis format of the University of Alberta.}\vskip7in
+    \centerline{\large \@date}% 
+}
+
+% put all pages for prefatory together
+\def\prefatorypages{
+    %\mathstyle
+    \libraryreleaseform
+    \quotepage
+    \titlepage
+    \signaturepage
+    \dedicationpage
+    \abstract
+    \preface
+    \acknowledgement
+    \beforebodyoftex
+    \tableofcontents
+    \iffigurespage
+      \listoffigures
+      \addcontentsline{toc}{chapter}{List of Figures}
+    \fi
+    \iftablespage
+      \listoftables
+      \addcontentsline{toc}{chapter}{List of Tables}
+    \fi
+
+%	 \ifsymbolspage 
+%	   \listofsymbols
+%	   \addcontentsline{toc}{chapter}{List of Symbols}
+%	 \fi
+
+    \beginbodyoftex
+}
+
+\def\listofsymbols{
+      \if@twocolumn
+         \@restonecoltrue\onecolumn
+      \else
+         \@restonecolfalse
+      \fi
+      \chapter*{\listsymbolname
+         \@mkboth{\MakeUppercase\listsymbolname}
+              {\MakeUppercase\listsymbolnam}
+      }
+      \@starttoc{lof}
+      \if@restonecol\twocolumn\fi
+}
+
+% for thebibilography: books or papers written by the same author(s)
+\def\sameauthor{\leavevmode\vrule height 2pt depth -1.6pt width 23pt}
+
+\def\nolistoffigures{\figurespagefalse}
+\def\nolistoftables{\tablespagefalse}
+\def\nolistofsymbols{\symbolspagefalse}

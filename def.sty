@@ -1,0 +1,37 @@
+% I am so lazy to write down \overline and use \ol instead.
+\newcommand\ol{\overline}
+\newcommand\un{\underbar}
+
+% move boxdot down a little, to match box
+%\newcommand\dotbox{$\,\raisebox{-.1 em}{$\boxdot$}\,$}
+\DeclareMathOperator{\dotbox}{\raisebox{-.1 em}{$\boxdot$}}
+
+% switched up some notation, too lazy to change them in tex file.
+% plain circle
+\newcommand\oodot{\,\Circle\,}
+
+% different single intergral
+\renewcommand\int{\varint}
+
+%different emptyset
+\renewcommand\emptyset{\varnothing}
+
+% operator for the support of a function/measure:
+\DeclareMathOperator{\supp}{supp\,}
+
+%operator for the convex hull of a set:
+\DeclareMathOperator{\conv}{conv\,}
+
+%operator for the circled convex hull of a set:
+\DeclareMathOperator{\cconv}{cconv\,}
+
+%operator for unit ball of a normed space:
+\DeclareMathOperator{\ball}{Ball\,}
+
+%operator for linear span:
+\DeclareMathOperator{\Span}{span\,}
+
+% Get the black sqaure at the end of proofs!
+% Comment it out for the hollow sqaure.
+\def\qed{\vrule height7.5pt width7.5pt depth0pt} 
+\newcommand\done{\hfill$\qed$\medskip}

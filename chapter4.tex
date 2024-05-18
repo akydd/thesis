@@ -1,0 +1,311 @@
+\chapter{Fixed Point Properties}
+
+\section{Introduction}
+
+This chapter is concerned with fixed point properties of locally compact groups
+on compact convex subsets of locally convex topological spaces.
+In Section~\ref{haar} we utilize Day's fixed point theorem in a functional
+analysis proof of the existence
+of a $G$-invariant measure on the coset space $G/H$, where $G$ is amenable as
+a discrete group and $H$ is a closed subgroup of $G$.
+Simon proved that a locally compact group $G$ has the strong fixed point
+property if and only if it has the fixed point property~\cite{simon}.
+In Section~\ref{simon} we prove a similar result in the setting of coset spaces.
+
+\section{Existence of a $G$-invariant measure on coset spaces}\label{haar}
+
+Let locally compact group $G$ be amenable as discrete, and let $H$ be a closed subgroup of $G$.
+We prove, using Day's fixed point theorem~\cite{day:fpt},
+that $G/H$ admits a $G$-invariant Radon measure; 
+that is, a regular Borel measure $\mu$ on the coset space $G/H$ such that $\mu(gE) = 
+\mu(E)$ for all $g \in G$ and all Borel sets $E$ of $G/H$.  The proof uses an idea
+of Izzo in the proof of the existence of the Haar measure on locally compact
+abelian groups using the Markov-Kakutani fixed point theorem (see~\cite{izzo:haar}).
+
+Day's fixed point theorem is as follows.
+\begin{theorem}[Day]
+Let $K$ be a compact, convex subset of a locally convex Hausdorff 
+topological vector space.  Let $S$ be a semigroup of affine continuous 
+transformations of $K$ into itself.  If $S$ is amenable as a discrete 
+semigroup, then there exists a point $k \in K$ such that $Tk=k$ for all $T 
+\in S$.
+\end{theorem}
+
+For our proof, we also need the following two lemmas, both of which are
+given in~\cite{izzo:haar}.  For the sake of completeness, we provide the
+details of Izzo's argument.
+\begin{lemma}\label{ginv:1}
+Let $G$ be a topological group and let $U$ be a symmetric neighbourhood of 
+the identity in $G$.  Then there exists a subset $V$ of $G$ such that for 
+each $g \in G$, the set $gUU$ contains at least one element of 
+$V$, and such that the set $gU$ contains at most one element of $V$.
+\end{lemma}
+\proof
+Define the family ${\mathcal F}$ of subsets of $G$ by
+\[
+\mathcal{F} = \{ T \subset G: p^{-1}q \not\in UU\text{ for all }p,q\in T\}.
+\]
+${\mathcal F}$ has a maximal element $V$ by Zorn's Lemma.  Consider $g\in G$.
+There exists some $v\in V$ such that $g^{-1}v\in UU$, for if this were not the case
+then $V\cup\{g\} \in \mathcal{F}$, contradicting the maximality of $V$.  Thus
+$gUU$ contains at least one element of $V$.
+
+Now suppose that $gU$ contains two distinct elements $u,v\in V$.  Then
+\[
+u^{-1}v = u^{-1}gg^{-1}v \in U^{-1}U = UU,
+\]
+contradicting the definition
+of $V$.  Thus $gU$ contains at most one element of $V$.
+\done
+
+\begin{lemma}\label{ginv:2}
+Let $X$ be a vector space.
+Give $X^*$ the weak* topology.  If $K$ is 
+a closed subset of $X^*$ such that for each $x \in X$ the set 
+$\{\phi(x):\phi\in K\}$ is bounded, then $K$ is compact.
+\end{lemma}
+\proof
+For each $x\in X$, denote by $b(x)$ the least scalar such that $|\phi(x)| \leq b(x)$
+for all $\phi\in K$, and let $D(x)$ be the set of all scalars $\alpha$ such that
+$|\alpha| \leq b(x)$.  Let $I = \prod_{x\in X}D(x)$, and give it the product topology.
+Tychonoff's theorem gives us that $I$ is compact with this topology.
+
+The elements of $I$ are functions $\psi$
+on $X$ such that $| \psi(x)| \leq b(x)$ for all $x\in X$.  Thus
+$K\subset X^* \cap I$, and as such it has both the weak* and the product
+topology of $X^*$ and $I$ respectively.  In fact, these topologies coincide on $K$.
+Indeed, fix a $\phi_0 \in K$, and choose $\{x_i\}_{i=1}^n \subset X$ and $\epsilon > 0$.
+We define the following sets,
+\begin{align*}
+W_1 &= \{\phi\in X^* : |\phi(x_i) - \phi_0(x_i)| < \epsilon,\;i=1,\dots,n\} \\
+W_2 &= \{\psi\in I : |\psi(x_i) - \phi_0(x_i)| < \epsilon,\;i=1,\dots,n\}.
+\end{align*}
+Letting $\{x_i\}_{i=1}^n$ and $\epsilon$ range over all possible values, we have
+that the sets $W_1$ form a local base of the weak* star topology of $X^*$ at $\phi_0$,
+and also that the sets $W_2$ form a local base for the product topology of $I$
+at $\phi_0$.  Now, since $K\subset X^*\cap I$, we have $W_1\cap K = W_2\cap K$.
+Thus the two topologies coincide on $K$.
+
+Next we claim that $K$ is closed in the product topology of $I$.  To prove this
+claim, first consider some $\psi_0 \in \ol{K}^I$.  Suppose $x$, $y\in X$, $\alpha$, $\beta\in\mathbb{C}$,
+and let $z=\alpha x+ \beta y$ and $\epsilon > 0$.  The set
+\[
+V_{z,\epsilon} = \{\psi\in I : | (\psi-\psi_0)(x)|,|(\psi-\psi_0)(y)|,|(\psi-\psi_0)(z)| < \epsilon\}
+\]
+is a product topology neighbourhood of $\psi_0$, and so there exists $\psi_{z,\epsilon}\in K\cap V_{z,\epsilon}$.
+We have that $\psi_0$ is in $X^*$.  Indeed, for any $x$, $y\in X$, $\alpha$, $\beta\in\mathbb{C}$, any $\epsilon >0$,
+and setting $z=\alpha x + \beta y$,
+\begin{eqnarray*}
+\lefteqn{
+\psi_0(\alpha x + \beta y) - \alpha\psi_0 (x) - \beta\psi_0 (y) =} \\
+ & & (\psi_0 - \psi_{z,\epsilon})(\alpha x + \beta y) + \alpha(\psi_{z,\epsilon} - \psi_0 )(x) + \beta(\psi_{z,\epsilon} - \psi_0 )(y),
+\end{eqnarray*}
+and thus
+\[
+| \psi_0(\alpha x + \beta y) - \alpha\psi_0 (x) - \beta\psi_0 (y)| < (1+| \alpha| + | \beta|)\epsilon.
+\]
+Finally, for $x\in X$ and $\epsilon >0$, a similar argument shows that there exists
+a $\psi_{x,\epsilon} \in K$ such that
+\[
+|\psi_0(x)-\psi_{x,\epsilon}(x)| < \epsilon.
+\]
+Since $K$ is weak* closed, $\psi_0 \in K$.
+$K$ is then compact in the product topology.  But
+the topologies coincide on $K$, and thus $K$ is weak* compact in $X^*$.
+\done
+
+\begin{theorem}\label{coset}
+Let $G$ be a locally compact group which is amenable as a discrete group,
+and let $H$ be a closed subgroup of $G$.  Then $G/H$ admits a $G$-invariant
+measure.
+\end{theorem}
+\proof
+Let $G$ be a locally compact group which is amenable as discrete.  Let $H$ 
+be a closed subgroup of $G$.
+We proceed by showing that there is a nonzero positive linear functional 
+on $C_c(G/H)$ which is invariant under the translations of $f \in 
+C_c(G/H)$ by elements in $G$.
+ 
+For each $a \in G$ we define $T_a: C_c(G/H)^*\to C_c(G/H)^*$ by
+\[
+\langle T_a,\phi\rangle(f) = \phi(\lambda_a f),\qquad \phi \in C_c(G/H)^*,\; f \in C_c(G/H).
+\]
+Each $T_a$ is continuous and affine, and $S = \{T_a : a\in G \}$ is a 
+representation of $G$.
+
+Fix a symmetric neighbourhood $U$ of the identity in $G$ such that the 
+closure of $U$ is compact.  Let $K$ be all positive linear functionals 
+$\phi \in C_c(G/H)^*$ which satisfy:
+\begin{enumerate}
+\item $\phi(f) \leq 1$ for all nonnegative $f \in C_c(G/H)$ that are 
+bounded 
+above by 1 and supported in $(xU)H = \{(xu)H: u\in U\}$ for some $x \in G$, and
+\item $\phi(f) \geq 1$ for all nonnegative $f \in C_c(G/H)$ that are equal 
+to 1 on $(xUU)H = \{(xuv)H: u,v\in U\}$ for some $x \in G$.
+\end{enumerate}
+Clearly $K$ is weak* closed and convex in $C_c(G/H)$.  Also notice that by 
+a partition of unity argument, every nonnegative function in $C_c(G/H)$ 
+can be expressed as a finite sum of nonnegative functions each with 
+support contained in $(xU)H$ for some $x \in G/H$.  By condition 1 of the 
+definition of $K$, it follows that for each $f \in C_c(G/H)$, the set 
+$\{\phi(f):\phi\in K\}$ is bounded.  By Lemma~\ref{ginv:2}, $K$ 
+is weak* compact.
+
+To see that $K$ is nonempty, take $V$ as in Lemma~\ref{ginv:1} and consider
+the functional
+\[
+\psi : f \mapsto \sum_{v\in V} f(vH).
+\]
+We show that $\psi \in K$.
+Indeed, take $f_1$ as in condition 1 of the definition of $K$.  The support of $f_1$
+is contained in $(aU)H$ for some $a\in G$.  $aU$ contains at most one element of $V$,
+and thus
+\[
+\psi(f_1) = \sum_{v\in V} f_1(vH) \leq 1.
+\]
+Taking $f_2$ as in
+condition 2 of the definition of $K$, we similarly notice that
+\[
+\psi(f_2) = \sum_{v\in V} f_2(vH) \geq 1.
+\]
+Thus $\psi\in K$.
+
+It remains to show that each $T_a$ maps $K$ onto itself.  This follows 
+from the definition of K; for if $\phi \in K$ and $f$ is as in condition 1 
+of the definition of $K$, $\|\lambda_a f\| \leq 1$ and the support of $\lambda_a f$ is 
+contained in $(a^{-1}gU)H$ for some $g \in G$.  Thus $\langle T_a,\phi\rangle(f) = 
+\phi(\lambda_a f) \leq 1$.  Similarly, if $f$ is as in condition 2 of the 
+definition of $K$, $\langle T_a,\phi\rangle(f) \geq 1$.
+
+By Day's fixed point theorem, $S = \{T_a: a\in G\}$ has a common 
+fixed point in $K$.  $K$ contains positive linear functionals on $C_c(G/H)$.
+The Riesz representation theorem states that each
+positive linear functional on $C_c(G/H)$ determines a regular Borel measure on $G/H$.
+We have shown that there exists a regular Borel measure for $G/H$ which
+is $G$ invariant.
+\done
+
+\begin{remark}
+(a) Lemma~\ref{ginv:2} is essentially Alaoglu's theorem~\cite[V.4.2]{d&s}.
+(b) The proof presented in Theorem~\ref{coset} is new even when $H = \{e\}$.
+\end{remark}
+
+\section{A Fixed Point Property for the pair\\$(G:H)$}\label{simon}
+Let $G$ be a locally compact group with a closed subgroup $H$.
+The homogeneous space $G/H$ possesses a quasi-invariant measure.  We denote the space
+of all essentially bounded complex-valued functions on $G/H$ by $L^\infty(G/H)$.
+
+Eymard defined the following fixed point property for the pair $(G:H)$ (see~\cite[p. 11]{eymard}).
+\begin{defn}[Eymard]\label{fpp}
+The pair $(G:H)$ is said to have the {\it fixed point property} (FPP) if every jointly continuous
+affine action of $G$ on a compact convex subset $K$ of a locally convex
+topological space $X$ which has a fixed point for $H$ also has a fixed point for $G$.
+\end{defn}
+Furthermore, Eymard proved that there exists a GLIM on $L^\infty(G/H)$ if and only if $(G:H)$
+has the FPP.
+
+In~\cite{simon}, Simon considered the following weaker condition of the action of $G$ on $K$.
+\begin{defn}[Simon]
+A {\it weakly measurable affine action} of $G$ on a compact convex subset $K$ of a locally
+convex topological space $X$ is a representation of $G$ by continuous affine maps
+$\alpha_g : K \rightarrow K$ such that for each $\phi \in X^*$ and $x\in K$, the map
+$g\mapsto \langle\phi, \alpha_g (x)\rangle$ is measurable.
+\end{defn}
+
+We define a second fixed point property for the pair $(G:H)$, and we show
+that $(G:H)$ possesses this fixed point property if and only if it has the FPP.
+\begin{defn}
+The pair $(G:H)$ is said to have the
+%the {\it strong fixed point property}
+FPP2 if every weakly
+measurable affine action of $G$ on a compact convex subset $K$ of a locally convex
+topological space $X$ which has a fixed point for $H$ also has a fixed point for $G$.
+\end{defn}
+\pagebreak
+\begin{theorem}
+For $G$ a locally compact group with a closed subgroup $H$, the following are equivalent:
+\begin{enumerate}[(i)]
+\item There exists a GLIM on $L^\infty (G/H)$.
+\item $(G:H)$ has the FPP2.
+\item $(G:H)$ has the FPP.
+\item There exists a GLIM on $LUC(G,G/H)$.
+\end{enumerate}
+\end{theorem}
+
+\proof
+(ii) $\Rightarrow$ (iii) is trivial, since every jointly continuous affine action is
+also a weakly measurable affine action.
+
+(iii) $\Leftrightarrow$ (iv) follows immediately from the fixed point theorem of Eymard~\cite[p. 12]{eymard},
+and a theorem of Greenleaf~\cite[Theorem 3.3]{gl:aa}.
+
+That (iv) $\Leftrightarrow$ (i) is due to Greenleaf \cite[Theorem 3.3]{gl:aa}.
+
+(i) $\Rightarrow$ (ii)  Consider a weakly measurable action of $G$ on $K$ such that
+\[
+hx_o = \alpha_h (x_o) = x_o
+\]
+ for all $h\in H$.
+Let $\mathcal{A}(K)$ be the Banach space of all continuous affine maps from $K$ to $K$.
+For every $\phi \in \mathcal{A}(K)$, we define the function $f_\phi$ by
+\[
+f_\phi (gH) = \langle\phi, g x_o\rangle.
+\]
+$\phi$ is bounded on $K$.  Thus $f_\phi \in L^\infty (G/H)$ since the action
+is weakly measurable.
+Let $m$ be the left invariant mean on $L^\infty (G/H)$.
+
+Next, we define a function $T$ on $\mathcal{A}(K)$ by
+\[
+\langle T, \phi \rangle = \langle m, f_\phi \rangle.
+\]
+Notice that $T$ is linear.  Indeed, let $\alpha$, $\beta \in {\mathbb C}$, and
+let $\phi$, $\psi \in \mathcal{A}(K)$. Then,
+\begin{align*}
+f_{\alpha\phi+\beta\psi}(gH) &= \langle \alpha\phi+\beta\psi,g x_o \rangle
+= \alpha\langle\phi , g x_o \rangle + \beta\langle\psi, g x_o \rangle \\
+&= (\alpha f_\phi + \beta f_\psi)(gH).
+\end{align*}
+This gives us that
+\[
+\langle T, \alpha\phi + \beta\psi \rangle = \langle m, f_{\alpha\phi + \beta\psi} \rangle
+= \langle m, \alpha f_\phi + \beta f_\psi \rangle
+= \alpha\langle T, \phi \rangle + \beta\langle T, \psi \rangle.
+\]
+Moreover, from the definition of $T$ we find that
+$\inf_{k\in K} \phi(k) \leq \langle T, \phi \rangle \leq \sup_{k\in K} \phi(k)$ for any real
+valued $\phi$.  Thus $T|_{X^*} \in X^{**}$.
+
+Let $Q$ be the canonical embedding of $X$ into $X^{**}$ via $\langle Q(x),\phi\rangle = \phi(x)$.
+We proceed by first showing that for some $k_o\in X$, $T|_{X^*} = Q(k_o)$.  Then we
+use the existence of a left invariant mean $m$ to show that $k_o$ is a fixed point for $G$.
+
+To show that $T|_{X^*} = Q(k_o)$ for some $k_o\in X$, we must show that $T$ is
+weak* continuous.
+The Mackey topology on $X^*$ is the finest topology such that $X^*$ has $X^{**}$ as its dual
+space.  Thus, it suffices to show that the convergence of $\phi_\gamma$ to $\phi$ in the Mackey
+topology implies convergence of $\langle T, \phi_\gamma \rangle$ to $\langle T, \phi \rangle$.
+$\phi_\gamma$ converges to $\phi$ in the Mackey topology if $\phi_\gamma$ converges 
+uniformly to $\phi$ on convex weakly compact subsets of $X^{**}$.  But $Q(K)$ is such a set.  In
+particular, we may assume that
+\[
+\langle \phi_\gamma ,g x_o \rangle = f_{\phi_\gamma}(gH)
+\rightarrow f_{\phi}(gH) = \langle \phi, g x_o \rangle
+\]
+uniformly, i.e., $f_{\phi_\gamma}$ is norm
+convergent to $f_\phi$ in $L^\infty (G/H)$.  Now $m$ is a mean on
+$L^\infty (G/H)$, and so $T$ is indeed weak* continuous.
+
+For any $\phi\in X^*$ and any $a, g\in G$, notice that
+\begin{equation}\label{fp1}
+f_{\lambda_a \phi}(gH) = (\lambda_a \phi)(g x_o) =  \lambda_a(\phi(g x_o)) =  \lambda_a(f_\phi)(gH).
+\end{equation}
+Then, for all $g \in G$,
+\begin{align*}
+\phi(g k_o) &= (\lambda_g \phi)(k_o) = \langle T, \lambda_g \phi \rangle = \langle m, f_{\lambda_g \phi} \rangle
+\stackrel{(\ref{fp1})}{=} \langle m, \lambda_g (f_\phi) \rangle \\
+&= \langle m, f_\phi \rangle = \langle T, \phi \rangle = \phi(k_o),
+\end{align*}
+by the invariance of $m$.
+Hence $g k_o = k_o$ for all $g\in G$.
+\done

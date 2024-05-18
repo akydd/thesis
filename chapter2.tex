@@ -1,0 +1,345 @@
+\chapter{Preliminaries}
+
+\section{Definitions and Notation}
+
+A semigroup $G$ together with a Hausdorff topology for which
+multiplication in $G$ is continuous from the left is called a 
+{\it right topological semigroup}.
+If multiplication in $G$ is separately [resp. jointly] continuous, $G$ is called a
+{\it semitopological} [resp. {\it topological}\,] {\it semigroup}.
+When
+the topology of $G$ is locally compact, $G$ is called a {\it locally compact semitopological}
+[resp. {\it topological}\,] {\it semigroup}.
+A group $G$ equipped with a Hausdorff topology is called a {\it topological group}
+if both multiplication and inversion are continuous.  When the topology of such a group is
+locally compact, we say $G$ is a {\it locally compact group}.  It is well known
+that a locally compact group $G$ admits a unique left Haar measure; that is, there
+exists a unique (up to a constant) regular Borel measure $\nu$ on $G$ such that
+$\nu(gE) = \nu(E)$, for every Borel set $E\subset G$ and every $g\in G$.
+
+For an arbitrary topological space $X$, we denote by $X_d$ the space $X$ taken with its discrete topology.
+When $G$ is a semigroup [resp. group], we call $G_d$ the {\it discrete semigroup} [resp. {\it group}\,].
+
+Throughout this chapter, $G$ will denote a semitopological semigroup,
+unless otherwise stated.
+
+For any nonempty set $X$,
+we denote by $\ell^\infty(X)$ the space of all bounded complex-valued functions on $X$.
+Then $\ell^\infty(X)$ is a commutative unital $C^*$-algebra with respect to the supremum norm
+$\|f\|_\infty = \sup_{x\in X} |f(x)|$, where the multiplication and addition are defined pointwise
+and the involution is defined by pointwise complex conjugation, $f^*(x) = \ol{f(x)}$.
+
+For a topological space $X$, there are several important subspaces of $\ell^\infty(X)$ that we will consider.
+We denote by $CB(X)$ the space of all bounded, continuous complex-valued functions on $X$.
+$C_0 (X)$ denotes all $f\in CB(X)$ such that for every $\epsilon >0$, there exists a compact
+subset $K\subset X$ (depending on $f$ and $\epsilon$) such that $|f(x)| < \epsilon$ for every
+$x\in X\backslash K$.
+%vanishing at infinity (explain this), and
+$C_c (X)$ denotes all $f\in CB(X)$ having compact support.  We have the natural inclusion relation
+$C_c(X) \subseteq C_0(X) \subseteq CB(X)$, where equality holds when $X$ is compact.
+With the operations and topology inherited from $\ell^\infty(X)$, both $CB(X)$ and $C_0(X)$ are $C^*$-subalgebras
+of $\ell^\infty(X)$.  Throughout this thesis, we will always consider the space $CB(X)$ to have the
+supremum norm topology, unless otherwise stated, noting that $CB(X_d) = \ell^\infty(X)$.
+
+For any function $f\in \ell^\infty(G)$ and $a\in G$, we denote the left and right translations
+of $f$ by $a$ by
+\begin{equation}\label{translations}
+\ell_a f(b) = f(ab), \qquad r_a f(b) = f(ba)
+\end{equation}
+for all $b\in G$.  We may also view $\ell_a$ and $r_a$ as operators from
+$\ell^\infty(G)$ into $\ell^\infty(G)$.
+We denote the left and right orbits of $f$ by
+\[
+O_\ell f = \{ \ell_a f: a\in G \},\qquad O_r f = \{ r_a f: a\in G \}.
+\]
+
+A linear subspace $Y \subseteq \ell^\infty(G)$ is called {\it left} [resp. {\it right}\,] {\it invariant} if
+$O_\ell f \subseteq Y$ [resp. $O_r f \subseteq Y$] for all $f\in Y$.  $Y$ is said to be {\it invariant}
+if it is both left and right invariant.
+
+Let $Y$ be a left [resp. right] invariant norm closed subspace of $\ell^\infty(G)$,
+and let $Y^*$ denote the dual space of $Y$.  $Y$ is called {\it left} [resp. {\it right}\,] {\it introverted}
+if the function
+\begin{equation}\label{introversions}
+n_\ell f(g) = n(\ell_g f)\qquad \text{[resp. }n_r f(g) = n(r_g f)\text{]}
+\end{equation}
+is in $Y$ for each $n\in Y^*$.
+$Y$ is called {\it introverted} if it is both left and right introverted.
+
+For any nonempty subset $A$ of a vector space $V$, we denote the
+convex hull of $A$ and the convex circled hull of $A$ by $\conv A$ and $\cconv A$, respectively.
+
+Finally, we say that a semitopological semigroup $G$ has a {\it left action} on a topological
+space $X$ when there is a map $(a,x) \mapsto ax$ from
+$G \times X$ into $X$ such that
+\[
+(ab)x = a(bx)
+\]
+for all $a,b\in G$ and $x\in X$, with the map
+\[
+x\mapsto ax
+\]
+continuous for each fixed $a\in G$.  Such an action is called {\it jointly continuous}
+if the map $(a,x) \mapsto ax$ is jointly continuous.
+
+\section{Subspaces of $CB(G)$}
+We give below a brief overview of common subspaces of the $C^*$-algebra $CB(G)$
+that are encountered in analysis.  Proofs of the stated results
+can be found in Chapter 4 of the useful book on analysis on semigroups
+by Berglund {\it et al.}~\cite{milnes}.
+
+A function $f\in CB(G)$ is called {\it almost periodic} if the left
+orbit $O_\ell f$ is relatively compact in $CB(G)$.  We denote the set
+of all such functions by $AP(G)$.  $AP(G)$ is an
+introverted $C^*$-subalgebra of $CB(X)$ containing the constant functions.
+
+A function $f\in CB(G)$ is called {\it weakly almost periodic} if the left
+orbit $O_\ell f$ is relatively weakly compact in $CB(G)$.  We denote the set
+of all such functions by $WAP(G)$.  $WAP(G)$ is an
+introverted $C^*$-subalgebra of $CB(G)$ containing the constant functions
+(see~\cite[Theorems 4.2 and 12.1]{eberlein}).
+
+A function $f\in CB(G)$ is called {\it left uniformly continuous}
+when the map $a\mapsto \ell_a f$ from $G$ into $CB(G)$ is continuous.
+We denote the set of all such functions by $LUC(G)$.
+$LUC(G)$ is an invariant, left introverted $C^*$-subalgebra
+of $CB(G)$ containing the constant functions (see~\cite[pp. 64, 68, 72]{namioka}).
+
+It is well known that equivalently, a function $f\in CB(G)$ is in
+$AP(G)$ [resp. $WAP(G)$] if the right orbit $O_r f$ is relatively [weakly]
+compact in $CB(G)$. Furthermore, Grothendieck proved that $f\in WAP(G)$ is equivalent to
+the equality
+$\lim_i \lim_j f(a_i b_j) = \lim_j \lim_i f(a_i b_j)$, whenever the limits exist,
+where $\{a_i\}$ and $\{b_j\}$ are sequences in $G$~\cite{groth}.
+
+Since the norm topology of $CB(G)$ is stronger than the weak topology, we know that $AP(G) \subseteq WAP(G)$.
+It can also be shown that $AP(G) \subseteq LUC(G)$.
+In general, there is no inclusion relationship between $WAP(G)$ and $LUC(G)$
+(see~\cite[p.165]{milnes} for an example).
+However, when $G$ is a locally compact topological group, $WAP(G)\subseteq LUC(G)$,
+$C_0(G)\cap AP(G) = \{0\}$ and $C_0(G)\subseteq WAP(G)$.  Consequently,
+$WAP(G) = AP(G)$ if and only if $G$ is a compact topological group.
+Thus, in the case that $G$ is a compact topological group, $C_0(G) = AP(G) = WAP(G) = LUC(G) = CB(G)$.
+
+\section{Means and Amenability}
+We state the definitions for a mean and invariant mean on subspaces of $\ell^\infty(G)$.
+We state some well known results concerning means, and we state the definitions of amenability
+for semigroups and for discrete groups.
+
+Let $X$ be an arbitrary set, and let $Y$ be a norm closed subspace of $\ell^\infty(X)$ containing the constant functions.
+Denote the characteristic function of a subset $A\subseteq X$ by $\chi_A$.
+A {\it mean} on $Y$ is any linear functional $m\in Y^*$ such that $m(\chi_X) = 1 = \|m\|$.
+We denote the set of all means on $Y$ by $M(Y)$.
+
+\begin{remark}\label{dense}
+(a) The set $M(Y)$ is a convex, weak* compact subset of $\ball(Y^*)$, the unit ball of $Y^*$.
+(b) We define the evaluation map $\delta\colon X \rightarrow \ball(Y^*)$ by
+\[
+\delta(x) = \delta_x,
+\]
+where
+\[
+\delta_x (f) = f(x)
+\]
+for all $f\in Y$.  The set $\conv \{\delta_x: x\in X\}$ is weak* dense in $M(Y)$
+(see~\cite[p. 281]{day:1950} and~\cite[p. 513]{day:first}), and the set
+$\cconv\{\delta_x: x\in X\}$ is weak* dense in $\ol{\ball(Y^*)}^{w^*}$.
+\end{remark}
+
+Let $Y$ be a left [resp. right] invariant norm closed subspace of $\ell^\infty(G)$ containing the constant
+functions.  A mean $m\in Y^*$ is said to be a {\it left} [resp {\it right}\,] {\it invariant mean}
+(LIM [resp. RIM]) if $m(\ell_g f) = m(f)$ [resp. $m(r_g f) = m(f)$] for all $g\in G$
+and $f\in Y$. We denote the set of all such means by $LIM(Y)$ [resp. $RIM(Y)$].
+We say $m$ is an {\it invariant mean} (IM) if $m$ is both a LIM and a RIM
+
+$G$ is said be to {\it left} [resp. {\it right}\,] {\it amenable} if there exists a LIM [resp. RIM] on $\ell^\infty(G)$.
+$G$ is {\it amenable} if there exists an IM on $\ell^\infty(G)$.
+
+Let $G$ be a topological group.
+It is well known that there exists a LIM for $\ell^\infty(G_d)$. In this case, there is also
+a RIM for $\ell^\infty(G_d)$.  For this reason, a topological group $G$ is said to be
+{\it amenable as discrete} if there exists a LIM, RIM, or an IM for $\ell^\infty(G_d)$.
+
+%Let $G$ be a locally compact group with fixed left Haar measure $\mu$.  The definitions for
+%(left and right) invariant means for semigroups extend to topological groups by replacing the
+%space $\ell^\infty(G)$ in the definitions above with $L^\infty(G)$, the space of all essentially bounded
+%complex-valued functions on $G$.
+
+%Proofs for the following two results are in Greenleaf's book~\cite{gl:inv}.
+%The discrete version of Theorem~\ref{a:sgrp} is due to Day.
+
+%\begin{theorem}[Greenleaf]
+%Let $G$ be a locally compact group with fixed left Haar measure $\mu$.
+%The following are equivalent.
+%\begin{enumerate}[(i)]
+%\item There is a LIM on $L^\infty(G)$
+%\item There is a LIM on $CB(G)$
+%\item There is a LIM on $LUC(G)$
+%\end{enumerate}
+%$G$ is called {\it amenable} if any (hence all) of the above hold.
+%\end{theorem}
+
+%\begin{theorem}\label{a:sgrp}
+%If $G$ is an amenable group, then every closed subgroup of $G$ is also amenable.
+%\end{theorem}
+
+\section{Arens Product}
+In this section we recall the Arens product on subspaces
+of $\ell^\infty(G)$.  We refer the reader to \cite{arens} for a description of the construction
+of the Arens multiplication, and to~\cite[\S 6]{day:first} for results on the application
+of Arens' ideas to semigroup algebras.
+
+Let $Y$ be a left introverted subspace of $\ell^\infty(G)$.
+The {\it Arens product} is a map from $Y^* \times Y^*$ to $Y^*$ defined by:
+\[
+(m,n) \mapsto m\oodot n,
+\]
+where
+\[
+m\oodot n(f) = \langle m, n_\ell f\rangle
+\]
+for all $m$, $n\in Y^*$ and $f\in Y$.
+The Arens product is associative, distributive, and weak*-weak*
+continuous in the first variable.
+Also,
+\[
+\|m\oodot n\| \leq \|m\|\|n\|,
+\]
+showing that the Arens product
+makes $Y^*$ Banach algebra.  $\oodot$ is commonly referred to as the {\it first Arens product} on $Y^*$.
+The {\it topological center} of $Y^*$ with respect to the first Arens product is defined to be
+\[
+Z_t(Y) = \{m\in Y^*:\text{ the map }n\mapsto m\oodot n\text{ is w*-w* continuous on }Y^*\}.
+\]
+
+When $Y$ is a right introverted subspace of $\ell^\infty(G)$,
+the {\it second Arens product} is defined for $Y^*$ by
+\[
+(m,n) \mapsto m\,\Box\,n,
+\]
+where
+\[
+m\,\Box\,n(f) = \langle m, n_r f\rangle.
+\]
+The second Arens product is associative, distributive, and weak*-weak*
+continuous in the first variable.  Furthermore, $Y^*$ is Banach algebra
+with this product.
+
+If $Y$ is a left [resp. right] introverted subspace of $\ell^\infty(G)$, then
+$Y^*$ is a right topological semigroup under the first [resp. second] Arens product.
+
+Let $Y$ be introverted.
+It generally not the case that the first and second Arens products agree.
+In this case, the {\it topological center} of $Y^*$ is defined to be
+\[
+Z_t(Y) = \{m\in Y^*:m\oodot n = m\,\Box\,n\text{ for all }n\in Y^*\}.
+\]
+$Y$ is called {\it Arens regular} when $Z_t(Y) = Y^*$,
+
+The topological centers of various Banach algebras have been studied by
+Dales and Lau~\cite{lau&dales}, Lau~\cite{lau:arens},
+Lau and \"{U}lger~\cite{lau&ulger}, and Neufang~\cite{neufang}, to name a few.
+For a discussion of the Arens products on the second
+duals of Banach algebras, and for a discussion of the topological center of the Arens products in such a setting,
+we refer the reader to~\cite{lau&ulger}.
+The reader will also find many new results and examples regarding the topological center
+of second duals of various Banach algebras in~\cite{lau&dales}.
+
+\pagebreak
+\section{Examples}
+
+\begin{example}
+Let $G$ be a topological group with a closed subgroup $H$.  $G$ has a jointly continuous left action
+on the coset space $G/H$ defined by the map
+\[
+(a,gH)\mapsto agH.
+\]
+\end{example}
+
+\begin{example}
+Let $G = (\mathbb{N}, +)$, the commutative additive semigroup of the natural numbers.
+Let $X = \beta\mathbb{N}$, the Stone-\u{C}ech compactification of $G$.
+Addition in $G$ extends uniquely to a binary operation $\star$ on $X$ such that
+$a+b = a\star b$ for every $a$, $b\in G$, and such that $G$ has a continuous 
+left action on $X$ defined by
+\[
+(a, x) \mapsto a\star x,
+\]
+for $a\in G$ and $x\in X$.
+\end{example}
+
+\begin{example}[Bohr~\cite{bohr}]
+Let $G=(\mathbb{R}, +)$, the additive semigroup of the real numbers, with the usual topology.
+Every continuous periodic function on $G$ is almost periodic.  It follows that every trigonometric
+polynomial
+\[
+f(x) = \sum_{n=1}^N \xi_n e^{i\alpha_n x},\qquad x,\alpha_n\in\mathbb{R},\,\xi_n\in \mathbb{C}
+\]
+is almost periodic.
+\end{example}
+
+\begin{example}
+Let $G=(\mathbb{R}, +)$.  The function
+\[
+x\mapsto \frac{x}{1 + |x|}
+\]
+is a function in $LUC(G)$, but not in $WAP(G)$~\cite[4.4.19]{milnes}.
+\end{example}
+
+\begin{example}\label{free}
+The free group on two generators is not amenable~\cite[17.16]{h&r}.
+\end{example}
+
+\begin{example}[Day]
+As a discrete group, the special orthogonal group $SO(3,\mathbb{R})$ contains
+the free group on two generators as a closed subgroup.  Day proved that
+if a discrete group $G$ is amenable, then every closed subgroup $H$ of $G$ is
+also amenable.
+By Example~\ref{free} and the previous statement, $SO(3,\mathbb{R})$
+is not amenable as a discrete group.
+\end{example}
+
+\begin{example}
+The ``$ax+b$'' group, or affine group of $\mathbb{R}$, consists of matrices of the form
+\[  \left[ \begin{array}{cc}
+                  a & b \\
+                  0 & 1
+                  \end{array}
+          \right],\qquad a\in\mathbb{R}^+,\,b\in\mathbb{R}
+\]
+with the topology inherited from the half plane in $\mathbb{R}^2$, and with the group operations of 
+matrix inversion and matrix multiplication.
+It is well known that the ``$ax+b$'' group is a solvable, hence amenable, locally compact group.
+\end{example}
+
+\begin{example}
+The Heisenberg group over the real numbers consists of matrices of the form
+\[ \left[ \begin{array}{ccc}
+           1 & x & y \\
+           0 & 1 & z \\
+           0 & 0 & 1
+          \end{array}
+   \right],\qquad x,y,z\in\mathbb{R}
+\]
+with the topology inherited from $\mathbb{R}^3$, and with the group operations of 
+matrix inversion and matrix multiplication.
+The Heisenberg group is a nilpotent locally compact group.  Hence it is solvable, and therefore amenable.
+\end{example}
+
+\begin{example}
+Let $\mathcal{H}$ be a Hilbert space, and denote the space of bounded linear operators from
+$\mathcal{H}$ to $\mathcal{H}$ by $\mathcal{B}(\mathcal{H})$.
+$\ball(\mathcal{B}(\mathcal{H}))$  with the weak operator topology (WOT) is
+a compact, right topological semigroup, where the semigroup operation is the composition
+of operators.
+
+Let $S$, $T \in \ball(\mathcal{B}(\mathcal{H}))$.  Clearly $\|ST\| \leq \|S\|\|T\| \leq 1$.
+To see that multiplication from the left is WOT continuous, take a net
+$\{S_\alpha\} \subset \ball(\mathcal{B}(\mathcal{H}))$ such that $S_\alpha \rightarrow S$ in the WOT.
+Then
+\[
+\langle (S_\alpha T)x, y\rangle = \langle S_\alpha(Tx), y\rangle \rightarrow \langle (ST)x, y\rangle
+\]
+for all $x$, $y\in\mathcal{H}$.  The WOT and weak* topologies agree on norm bounded sets,
+hence $\ball(\mathcal{B}(\mathcal{H}))$ is WOT compact.
+\end{example}

@@ -1,0 +1,1414 @@
+\chapter{Main results}
+
+\section{Introduction}
+
+Let a semitopological semigroup $G$ have a left action on a Hausdorff space $X$.
+We begin this chapter by defining translations, invariance, introversion and
+amenability of subspaces of $\ell^\infty(X)$ with respect to the left action of $G$ on $X$.
+These definitions allow us to define actions that are analogues to the first and second
+Arens products, and that reduce to the first and second Arens products when $X = G$.
+In Section~\ref{subspaces} we introduce a number of $G$-invariant subspaces of $CB(X)$,
+We discuss some properties of each subspace; in particular, we examine
+the conditions of invariance and introvertibility.
+The focus of Section~\ref{main:arens} is the space $LUC(G,X)$, where $X$
+is a locally compact space.
+We consider the action of the Banach algebra $LUC(G)^*$ on $LUC(G,X)^*$.
+Using ideas of Lau~\cite{lau:arens} and Wong~\cite{wong:arens},
+we prove that when $G$ and $X$ are locally compact, the measure
+algebra $\mathcal{M}(G)$ is a subset of the topological
+center of the action of $LUC(G)^*$ on $LUC(G,X)^*$.
+In Section~\ref{main:fairchild} we show that for discrete $G$ and $X$, the set of almost $G$-periodic
+points of $\beta X$ is exactly the set of elements in $\beta X$ which belong to some
+$G$-minimal set.  We also show that under certain conditions, there exist non almost
+$G$-periodic points in $\beta X$ which are in the support of some $G$-invariant measure
+of $\beta X$.
+
+\section{Invariance, introversion, and the Arens\\action}\label{main:intro}
+Let a semitopological semigroup $G$ have a left action on a nonempty set $X$.  In the case that 
+$X$ has its own semigroup structure
+(that is. an associative binary operation, $X\times X \rightarrow X$), it is convenient to distinguish
+between translations of a function $f$ on $X$ by elements in $G$ and translations of $f$ by elements in $X$.
+With this in mind, 
+we denote the left translation of a function $f\in \ell^\infty (X)$ by an element $a\in G$ by
+\[
+%\begin{equation}\label{left}
+\lambda_a f(x) = f(ax)
+%\end{equation}
+\]
+for all $x\in X$. We can regard $\lambda_a$ as an operator from $\ell^\infty(X)$ into $\ell^\infty(X)$.
+We also define an analogue to the right translation defined
+in (\ref{translations}) as follows: for $f\in \ell^\infty(X)$ and $x\in X$, define the function
+\[
+%\begin{equation}\label{right}
+\rho_x f(a) = f(ax),
+%\end{equation}
+\]
+for all $a\in G$, noting that $\rho_x f$ is a function of $G$.  Both functions are well defined.
+We can regard $\rho_x$ as an operator from $\ell^\infty(X)$ into $\ell^\infty(G)$.
+We define the left and right orbits of $f\in \ell^\infty(X)$ with respect to $G$ by
+\[
+O_\lambda f = \{ \lambda_a f: a\in G \},\qquad O_\rho f = \{ \rho_x f: x\in X \},
+\]
+noting that $O_\rho f$ is a subset of $\ell^\infty(G)$.
+
+Let $G$ have a jointly continuous left action on a topological Hausdorff space $X$.
+
+\begin{defn}
+Consider a subspace of $CB(X)$ that is defined purely in terms of the action of $G$ on $X$
+and the topologies of $G$ and $X$ (i.e. defined independently of the algebraic structure of $X$, if any).
+Hereafter, we will always write such a subspace as $Y(G,X)$.  We define the
+{\it incident space of $Y(G,X)$} to be $Y(G,G)$, the subspace
+% other names for this space?  mutual/intermutial/paired/parallel/incident/twin
+of $CB(G)$ defined by the same conditions of $Y(G,X)$, with $X$ replaced by $G$.
+For convenience, we write $Y(G)$ for $Y(G,G)$.
+\end{defn}
+
+The notion of the incident space allows us describe an analogue
+of right invariance within the framework of the left action from $G$.
+
+A linear subspace $Y \subseteq \ell^\infty(X)$ is called {\it left $G$ invariant} if
+$O_\lambda f \subseteq Y$ for all $f\in Y$.
+A subspace $Y(G,X)$ of $CB(X)$ is called {\it right $X$ invariant} if
+$O_\rho f \subseteq Y(G)$ for all $f\in Y(G,X)$.
+$Y(G,X)$ is {\it invariant} if it is both left $G$ and right $X$ invariant.
+
+We define functions similar to those in (\ref{introversions}),
+and use them to define analogues of left and right introversion.
+Let $Y(G,X)$ be a norm closed, left $G$ invariant subspace of $CB(X)$, and
+let $n\in Y(G,X)^*$, the dual space of $Y(G,X)$.
+$Y(G,X)$ is called {\it left $G$ introverted}
+if the function
+\[
+%\begin{equation}\label{left-i}
+n_\lambda f(g) = n(\lambda_g f)
+%\end{equation}
+\]
+is in $Y(G)$ for all $f\in Y$.
+When $Y(G,X)$ is a norm closed, right $X$ invariant subspace and $m\in Y(G)^*$,
+$Y(G,X)$ is called {\it right $X$ introverted}
+if the function
+\[
+%\begin{equation}\label{right-i}
+m_\rho f(x) = m(\rho_x f)
+%\end{equation}
+\]
+is in $Y(G,X)$ for all $f\in Y(G,X)$.
+$Y(G,X)$ is {\it introverted} if it is both left $G$ and right $X$ introverted.
+
+
+We have the following useful lemma concerning the above functions $n_\lambda f$ and $m_\rho f$.
+\begin{lemma}\label{conv}
+Let $Y(G,X)$ be a norm closed invariant linear subspace of $CB(X)$ containing the constant functions.
+For every $f\in Y(G,X)$,
+\begin{enumerate}[(i)]
+\item $\{n_\lambda f : n\in Y(G,X)^*,\,\|n\| \leq 1 \} = \ol{\cconv\{\rho_x f: x\in X\}}^p$
+\item $\{m_\rho f : m\in Y(G)^*,\,\|m\| \leq 1 \} = \ol{\cconv\{\lambda_g f: g\in G\}}^p$
+\end{enumerate}
+where the closures are taken in the pointwise topologies of the respective function spaces.
+\end{lemma}
+\proof
+(i) Let $f\in Y(G,X)$, $n\in \ball(Y(G,X)^*)$.  By Remark~\ref{dense}(b), we may take a net
+$\{n_\alpha\} \subset Y(G,X)^*$ of linear combinations of
+point evaluations $\sum_{i=1}^k \xi_i \delta_{x_i}$, with $\sum_{i=1}^k | \xi_i | \leq 1$, such that
+$n_\alpha \rightarrow n$ weak*.  For $g\in G$, write $n_\lambda f(g)$ as
+\[
+\lim_\alpha \left(\sum_{i=1}^k \xi_i \delta_{x_i}\right)_\alpha (\lambda_g f) =
+%\lim_\alpha \sum_{i=1}^k \langle (\xi_i \delta_{x_i})_\alpha, \lambda_g f\rangle =
+\lim_\alpha \left(\sum_{i=1}^k \xi_i \rho_{x_i}\right)_\alpha f(g).
+\]
+The proof of (ii) is similar.
+\done
+
+\begin{remark}
+(a) We will say that $Y(G,X)$ is left or right invariant [resp. introverted], with the understanding
+that we refer to left $G$ or right $X$ invariance [resp. introversion].
+(b) When $X$ has its own associative binary operation and $X\neq G$, do not confuse our definition
+of right $X$ invariance with the usual definition of right invariance for 
+a subspace of $\ell^\infty(X)$.
+\end{remark}
+
+The following definition of a $G$ invariant mean on subspaces of
+$\ell^\infty(X)$ is due to Greenleaf, who first studied
+such means when $G$ is a locally compact group (see~\cite{gl:aa}).
+\begin{defn}\label{aa}
+Let $Y$ be a left $G$-invariant, norm closed subspace of $\ell^\infty(X)$ containing the constant
+functions.  A mean $m\in Y^*$ is said to be a {\it left $G$-invariant mean} [GLIM] if
+$m(\lambda_g f) = m(f)$ for all $g\in G$ and $f\in Y$.  We denote the set of all such means by $GLIM(Y)$.
+$X$ is said to be {\it left amenable} if there exists a GLIM on $\ell^\infty(X)$.
+\end{defn}
+
+The new notions of introvertibility allow us to define analogues of
+the first and second Arens product as introduced by Arens in~\cite{arens}.
+\begin{defn}
+Let $Y_1(G,X)$ be a left introverted subspace of $CB(X)$.
+For $m\in Y_1(G)^*$, $n\in Y_1(G,X)^*$ and $f\in Y_1(G,X)$, the {\it left Arens action}
+of $Y_1(G)^*$ on $Y_1(G,X)^*$ is defined by the map
+\[
+(m,n) \mapsto m\odot n,
+\]
+where
+\[
+m\odot n(f) = \langle m, n_\lambda f\rangle.
+\]
+Let $Y_2(G,X)$ be a right introverted subspace of $CB(X)$, let
+$m\in Y_2(G)^*$, $n\in Y_2(G,X)^*$ and $f\in Y_2(G,X)$.  We similarly define
+the {\it right Arens action} of $Y_2(G)^*$ on $Y_2(G,X)^*$ by
+\[
+n\dotbox m(f) = \langle n, m_\rho f\rangle.
+\]
+\end{defn}
+
+It is easy to see that the left and right Arens actions are each weak*-weak*
+continuous in the first variable.
+
+\begin{proposition}\label{arens:G-inv}
+Let $Y(G,X)$ be a left introverted subspace of $CB(X)$.
+The left Arens action of $Y(G)^*$ on $Y(G,X)^*$ has the following
+properties:
+\begin{enumerate}[(i)]
+\item If $Y(G,X)$ has a GLIM $n$, then for every $m\in M(Y(G))$, $m\odot n = n$.
+\item $Y(G,X)^*$ is a left Banach-$Y(G)^*$ module.
+\item For any $g\in G$ and $x\in X$, $\delta_g\odot\delta_x = \delta_{gx}$.
+\end{enumerate}
+\end{proposition}
+\proof
+(i) Let $n\in GLIM(Y(G,X))$.  Then $n_\lambda f(g) = n(f)$ for all $g\in G$ and $f\in Y(G,X)$.  Hence
+\[
+m \odot n(f) = \langle m,n_\lambda f\rangle = \langle m, n(f)\cdot 1\rangle = n(f)
+\]
+for all $m\in M(Y(G))$.
+
+(ii) $Y(G)^*$ is a Banach algebra with the first Arens product, $\oodot$.
+For $l,m \in Y(G)^*$, $n\in Y(G,X)^*$, $f\in Y(G,X)$ and $g$, $h\in G$,
+\[
+\lambda_{gh}f = \lambda_h(\lambda_g f),
+\]
+\[
+\ell_g(n_\lambda f) = n_\lambda(\lambda_g f),
+\]
+and so
+\begin{align}\label{quickie}
+(m_\ell (n_\lambda f))(g) &= \langle m,\;\ell_g(n_\lambda f)\rangle = \langle m,n_\lambda (\lambda_g f)\rangle
+= m\odot n(\lambda_g f)\\
+&= (m\odot n)_\lambda f(g). \notag
+\end{align}
+Thus
+\begin{align*}
+\left(l \oodot m\right)\odot n(f) &= l\oodot m\,(n_\lambda f) = \langle l, m_\ell (n_\lambda f)\rangle
+\stackrel{(\ref{quickie})}{=} \langle l, (m\odot n)_\lambda f\rangle \\
+&= l \odot \left( m \odot n\right)(f).
+\end{align*}
+Furthermore,
+\begin{align*}
+\|m\odot n\| &= \sup_{ \| f \| =1}|m(n_\lambda f)| \leq \|m\| \sup_{ \| f \| =1} \|n_\lambda f\|
+= \|m\| \sup_{ \| f \| =1} \sup_{a\in G} |n(\lambda_a f)| \\ &\leq \|m\| \|n\|.
+\end{align*}
+
+(iii) For $g\in G$, $x\in X$ and $f\in Y(G,X)$,
+\[
+\delta_g\odot\delta_x(f) = \langle\delta_g, (\delta_x)_\lambda f\rangle = f(gx) = \delta_{gx}(f).
+\]
+\done
+
+\begin{defn}
+Let $Y(G,X)$ be a left introverted subspace of $CB(X)$.
+We define the {\it topological center} of $Y(G,X)^*$ to be the set
+\[
+Z_Y = \{m\in Y(G)^*:\text{ the map }n\mapsto m\odot n\text{ is w*-w* continuous on }Y(G,X)^*\}.
+\]
+\end{defn}
+
+\section{Invariant subspaces of $CB(X)$}\label{subspaces}
+When a semitopological semigroup $G$ has a jointly continuous left action on
+a Hausdorff space $X$, we are able to define the almost periodic, weakly almost
+periodic, and left uniformly continuous function spaces on $X$.  We examine
+the properties of these function spaces.
+
+\begin{defn}
+A function $f\in CB(X)$ is {\it almost periodic} 
+if $O_\lambda f$ is relatively compact in the norm topology of $CB(X)$.  We
+denote the space of all such functions $AP(G,X)$.
+\end{defn}
+
+\begin{lemma}\label{sk4.2.2}
+$AP(G,X)$ is an invariant $C^*$-subalgebra of $CB(X)$.
+\end{lemma}
+\proof
+Clearly we have left invariance, since $\{\lambda_g f : g\in G \} =
+\{\lambda_a (\lambda_g f) : g\in G \}$ for all $f\in CB(X)$ and $a\in G$.
+
+Let $f\in AP(G,X)$ and $x\in X$.  To see that $\rho_x f \in AP(G)$, start with sequences
+$\{g_{n_k}\} \subset \{g_n\} \subset G$ such that
+$\|\lambda_{g_{n_k}}f - F\| \rightarrow 0$ for some $F\in CB(X)$.  Then,
+\[
+\|\ell_{g_{n_k}} (\rho_x f) - \rho_x F\| = \sup_{z\in G\cdot x} |\lambda_{g_{n_k}} f(z) - F(z)|
+\leq \|\lambda_{g_{n_k}}f - F\| \rightarrow 0,
+\]
+showing that $AP(G,X)$ is right invariant.
+
+Take $f_1$, $f_2 \in AP(G)$, a sequence $\{g_n\} \subset G$, a subsequence $\{g_{n_k}\}$ of $\{g_n\}$,
+and $F_1$, $F_2 \in CB(X)$ such that
+\[
+\lim_k \|\lambda_{g_{n_k}}f_i - F_i\| = 0,\qquad i=1,2.
+\]
+Then,
+\[
+\|\lambda_{g_{n_k}}(f_1 + f_2) - (F_1 + F_2)\| \leq \sum_{i=1,2}\|\lambda_{g_{n_k}}f_i - F_i\| \rightarrow 0,
+\]
+and
+\[
+\|\lambda_{g_{n_k}}(f_1\cdot f_2) - (F_1\cdot F_2)\|
+\leq \|\lambda_{g_{n_k}}f_1 - F_1\|\|f_2\| + \|\lambda_{g_{n_k}}f_2 - F_2\|\|F_1\| \rightarrow 0.
+\]
+Thus, $f_1 + f_2$ and $f_1\cdot f_2 \in AP(G,X)$.  Consequently, $AP(G,X)$ is a subalgebra of $CB(X)$.
+
+To see that $AP(G,X)$ is norm closed, take $\{f_n\} \subset A(G,X)$ such that $\|f_n - f\| \rightarrow 0$ for
+some $f\in CB(X)$.  Let $\{g_m\}$ be a sequence in $G$.  For every $m$ and $n$, the function
+$\lambda_{g_m}f_n$ is in $AP(G,X)$.
+Using the diagonal process, we find a subsequence $\{g_{m_k}\}$ of $\{g_m\}$ such that
+for every $i$,
+\begin{equation}\label{ap1}
+\lim_k \|\lambda_{g_{m_k}}f_i - F_i\| = 0
+\end{equation}
+for some $F_i \in CB(X)$.
+Now, for $j > i$ and large values of $k$,
+\begin{align*}
+\|F_i - F_j\| &\leq \|F_j - \lambda_{g_{m_k}}f_j\| + \|F_i - \lambda_{g_{m_k}}f_j\| \\
+&\leq \|F_j - \lambda_{g_{m_k}}f_j\| + \|F_i - \lambda_{g_{m_k}}f_i\| + \|\lambda_{g_{m_k}}(f_i - f_j)\| \\
+&\!\stackrel{(\ref{ap1})}{\leq}\|f_i - f_j\|.
+\end{align*}
+Thus there exists $F\in CB(X)$ such that $F_n \rightarrow F$ uniformly.  We claim that
+$\|\lambda_{g_{m_k}}f - F\| \rightarrow 0$.  Indeed, for every $i$,
+\[
+\|\lambda_{g_{m_k}}f - F \| \leq \|\lambda_{g_{m_k}}f_i - F_i\| + \|\lambda_{g_{m_k}}f_i - \lambda_{g_{m_k}}f\|
++ \|F_i - F \|,
+\]
+and so, for large values of $i$,
+\[
+\lim_k \|\lambda_{g_{m_k}}f - F\| \leq \lim_k \|\lambda_{g_{m_k}}f_i - F_i\| \stackrel{(\ref{ap1})}{=} 0.
+\]
+Thus $f\in AP(G,X)$.
+\done
+
+\begin{theorem}
+Let $Y(G,X)$ be a norm closed, involution closed, translation invariant, linear subspace of
+$CB(X)$ containing the constant functions.  For any $f\in Y(G,X)$, the following are equivalent:
+\begin{enumerate}[(i)]
+\item $f\in AP(G,X)$.
+\item $\{\rho_x f: x\in X\}$ is relatively norm compact in $CB(G)$.
+\item The map $m\mapsto m_\rho f$, $\ball(Y(G)^*)\rightarrow \ell^\infty (X)$ is weak*-norm continuous.
+\item The map $n\mapsto n_\lambda f$, $\ball(Y(G,X)^*)\rightarrow \ell^\infty (G)$ is weak*-norm continuous.
+\item For every $m\in Y(G,X)^*$ and $n\in Y(G)^*$, the function $m_\rho f$ is in $Y(G,X)$, the function $n_\lambda f$ is in $Y(G)$, $m\odot n(f) = n\dotbox m(f)$, and the map $(m,n) \mapsto m\odot n(f)$ is weak* continuous on $\ball(Y(G)^*) \times \ball(Y(G,X)^*)$.
+\end{enumerate}
+\end{theorem}
+\proof
+(i) $\Leftrightarrow$ (iii) Define a map $V_1:\ball(Y(G)^*)\rightarrow \ell^\infty (X)$ by
+\[
+V_1(m) = m_\rho f.
+\]
+$V_1$ is weak*-pointwise continuous.  By Lemma~\ref{conv},
+\[
+V_1(\ball(Y(G)^*)) = \ol{\cconv\{\lambda_g f: g\in G\}}^p.
+\]
+If (i) holds, then by Mazur's Theorem~\cite[V.2.6]{d&s}, $\ol{\cconv\{\lambda_g f: g\in G\}}^{\|\cdot\|}$ is compact.
+Thus the norm and pointwise topologies coincide on $V_1(\ball(Y(G)^*))$, and $V_1$ is weak*-norm
+continuous.  If we assume (iii), then $\{m_\rho f: \|m\| \leq 1\}$ is norm compact.  But by Lemma~\ref{conv},
+\[
+\ol{\{\lambda_g f: g\in G\}}^{\|\cdot\|} \subset \ol{\{m_\rho f: \|m\| \leq 1\}}^{\|\cdot\|},
+\]
+showing that $f\in AP(G,X)$.
+
+Similarly, (ii) $\Leftrightarrow$ (iv).  We define $V_2:\ball(Y(G,X)^*)\rightarrow \ell^\infty(G)$ by
+\[
+V_2(n) = n_\lambda f.
+\]
+$V_2$ is weak*-pointwise continuous.  By Lemma~\ref{conv},
+\[
+V_2(\ball(Y(G,X)^*)) = \ol{\cconv\{\rho_x f: x\in X\}}^p.
+\]
+If we assume (ii) then, $\ol{\cconv\{\rho_x f: x\in X\}}^{\|\cdot\|}$ is compact,
+and the norm and pointwise topologies coincide on $V_2(\ball(Y(G,X)^*))$.  If we assume (iv),
+then $\{n_\lambda f: \|n\| \leq 1\}$ is norm compact.  Relative norm compactness of
+$\{\rho_x f: x\in X\}$ follows from noticing that
+\[
+\ol{\{\rho_x f: x\in X\}}^{\|\cdot\|} \subset \ol{\{n_\lambda f: \|n\| \leq 1 \}}^{\|\cdot\|}.
+\]
+
+(v) $\Rightarrow$ (i) Let $f\in Y(G,X)$.  Define a map $W_1: \ball(Y(G)^*) \rightarrow CB(\ball(Y(G,X)^*))$ by
+\[
+[W_1(m)](n) = m\odot n(f).
+\]
+$W_1$ is weak*-norm continuous by~\cite[Lemma B.3]{milnes}.  Then $\{W_1(\delta_g):g\in G\}$ is
+relatively norm compact, as $\{\delta_g:g\in G\} \subset \ball(Y(G)^*)$.  Notice that
+\[
+\lambda_g f(x) = \delta_g \odot \delta_x (f)
+\]
+for all $x\in X$, and so
+\[
+\{\lambda_g f: g\in G\} = \{[W_1(\delta_g)] \circ \delta: g\in G\},
+\]
+which is a relatively norm compact set in $CB(X)$.
+
+To prove (v) $\Rightarrow$ (ii),  let $f\in Y(G,X)$.    We define a map
+$W_2: \ball(Y(G)^*)\rightarrow CB(\ball(Y(G)^*))$ by
+\[
+[W_2(n)](m) = n\dotbox m(f).
+\]
+The proof continuous in the same manner as the proof of (v) $\Rightarrow$ (i).
+$W_2$ is weak*-norm continuous, and the set $\{W_2(\delta_x):x\in X\}$ is relatively norm compact.
+\[
+\rho_x f(g) = \delta_x \dotbox \delta_g (f)
+\]
+for all $g\in G$, and thus
+\[
+\{\rho_x f: x\in X\} = \{[W_2(\delta_x)]\circ \delta: x\in X\},
+\]
+which is a relatively norm compact set in $CB(G)$.
+
+(ii) $\Rightarrow$ (v)  Let $f\in Y(G,X)$.  Recall that from Lemma~\ref{conv}
+and the equivalence of (ii) and (iv),
+\[
+\{n_\lambda f: \|n\| \leq 1\} = \ol{\cconv\{\rho_x f: x\in X\}}^{\|\cdot\|} \subset Y(G).
+\]
+Assuming (ii), and since $Y(G,X)^* = \ol{\Span\{\delta_x: x\in X\}}^{w^*}$, $n_\lambda f \in Y(G)$
+for all $n\in Y(G,X)^*$.  Next, we claim that the map
+$(m,n) \mapsto m\odot n(f)$ is continuous for all $m\in\ball(Y(G)^*)$, $n\in\ball(Y(G,X)^*)$ and
+$f\in Y(G,X)$.  Indeed, let $\{m_\alpha\}\subset \ball(Y(G)^*)$ and $\{n_\beta\} \subset \ball(Y(G,X)^*)$
+such that $m_\alpha \rightarrow m$ and $n_\beta \rightarrow n$, both weak*.  By (iv),
+\begin{align*}
+|m\odot n (f) - m_\alpha \odot n_\beta (f)| 
+%&\leq |\langle m, n_\lambda f\rangle - \langle m, (n_\beta)_\lambda f \rangle|
+%+ |\langle m, (n_\beta)_\lambda f \rangle - \langle m_\alpha, (n_\beta)_\lambda f\rangle | \\
+&\leq \|m\|\|n_\lambda f - (n_\beta)_\lambda f\| + \|m - m_\alpha\|\|(n_\beta)_\lambda f\| \rightarrow 0.
+\end{align*}
+To see that $m_\rho f \in Y(G,X)$, notice that the continuity of the map $(m,n)\mapsto m\odot n(f)$
+is all we need to show that
+$\{\lambda_g f: g\in G\}$ is relatively norm compact (see the proof of (v) $\Rightarrow$ (i)), and
+then by (iv), the map $V_1$ is weak*-norm continuous.
+As already seen in the proof of (i) $\Rightarrow$ (iii),
+\[
+\{m_\rho f: \|m\|\leq 1\} = \ol{\cconv\{\lambda_g f: g\in G\}}^{\|\cdot\|} \subset Y(G,X).
+\]
+The fact that $Y(G,X)^* = \ol{\Span\{\delta_x: x\in X\}}^{w^*}$ proves that
+$m_\rho f \in Y(G,X)$ for all $m\in Y(G,X)^*$.
+It remains to be seen that the map
+$(n,m) \mapsto n\dotbox m(f)$ is continuous for all $m\in\ball(Y(G)^*)$, $n\in\ball(Y(G,X)^*)$ and
+$f\in Y(G,X)$.  Indeed, let $\{m_\alpha\}\subset \ball(Y(G)^*)$ and $\{n_\beta\} \subset \ball(Y(G,X)^*)$
+such that $m_\alpha \rightarrow m$ and $n_\beta \rightarrow n$ in the  weak* topology.
+By the weak*-norm continuity of $V_1$,
+\begin{align*}
+|n\dotbox m (f) - n_\beta \dotbox m_\alpha (f)| &\leq \|n\|\|m_\rho f - (m_\alpha)_\rho f\|
+ + \|n-n_\beta\|\|(m_\alpha)_\rho f\| \rightarrow 0.
+\end{align*}
+Clearly, $\delta_g \odot \delta_x(f) = \delta_x \dotbox \delta_g (f)$ for every $g\in G$ and every $x\in X$.
+By the joint continuity of the maps $(m,n) \mapsto m\odot n(f)$ and $(m,n) \mapsto n\dotbox m(f)$,
+$m\odot n(f) = n\dotbox m(f)$ for all $m\in \ball(Y(G)^*)$ and $n\in \ball(Y(G,X)^*)$, and thus holds for all
+$m\in Y(G)^*$ and $n\in Y(G,X)^*$.
+
+(i) $\Rightarrow$ (v) Let $f\in AP(G,X)$.  By Lemma~\ref{conv} and Mazur,
+\[
+\{m_\rho f: \|m\| \leq 1\} = \ol{\cconv\{\lambda_g f: g\in G\}}^{\|\cdot\|} \subset Y(G,X).
+\]
+Assuming (i), and since $Y(G)^* = \ol{\Span\{\delta_g: g\in G\}}^{w^*}$, $m_\rho f \in Y(G,X)$
+for all $m\in Y(G)^*$.
+
+Next we show that $n_\lambda f \in Y(G)$ for all $n\in Y(G,X)^*$.
+Let $\{m_\alpha\}\subset Y(G)^*$ and $\{n_\beta\}\subset Y(G,X)^*$ such that $m_\alpha \rightarrow m$ and
+$n_\beta \rightarrow n$ in the weak* topologies of their respective spaces.  By the continuity of $V_1$,
+\[
+|n\dotbox m(f) - n_\beta \dotbox m_\alpha (f)| \leq \|n\|\|m_\rho f - (m_\alpha)_\rho f\| + \|n-n_\beta\|\|(m_\alpha)_\rho f\| \rightarrow 0.
+\]
+As in the proof of (v) $\Rightarrow$ (i), $\{\rho_x f: x\in X\}$ is relatively norm compact.  Then, applying (iv),
+Lemma~\ref{conv} and Mazur,
+\[
+\{n_\lambda f: \|n\|\leq 1\} = \ol{\cconv\{\rho_x f: x\in G\}}^{\|\cdot\|} \subset Y(G).
+\]
+Once again, using $Y(G,X)^* = \ol{\Span\{\delta_x: x\in X\}}^{w^*}$, we reason that $n_\lambda f \in Y(G)$
+for all $n\in Y(G,X)^*$.
+By the weak*-norm continuity of $V_2$, the map $(m,n) \mapsto m\odot n(f)$
+is continuous on $\ball(Y(G)^*)\times\ball(Y(G,X)^*)$.
+Finally, the equality $m\odot n(f) = n\dotbox m(f)$ follows as in the proof of (ii) $\Rightarrow$ (v).
+\done
+
+\begin{corollary}
+$AP(G,X)$ is the largest involution closed introverted subspace $Y(G,X)$ of $CB(X)$ containing the constant functions
+with the following properties:
+\begin{enumerate}[(i)]
+\item $m\odot n = n\dotbox m$ for all $m\in Y(G)^*$, $n\in Y(G,X)^*$.
+\item The mapping $(m,n) \rightarrow m\odot n$ is jointly continuous on norm bounded subsets of $Y(G)^* \times Y(G,X)^*$.
+\end{enumerate}
+\end{corollary}
+
+\begin{defn}
+A function $f\in CB(X)$ is {\it weakly almost periodic} 
+if $O_\lambda f$ is relatively compact in the weak topology of $CB(X)$.  We
+denote the space of all such functions $WAP(G,X)$.
+\end{defn}
+
+\begin{lemma}\label{sk4.2.3}
+$WAP(G,X)$ is an invariant $C^*$-subalgebra of $CB(X)$ containing
+$AP(G,X)$.
+\end{lemma}
+\proof
+The inclusion $AP(G,X)\subset WAP(G,X)$ is trivial, as norm compactness implies weak compactness.
+Left invariance follows from observing that $\{\lambda_a (\lambda_g f) : a\in G\} \subset \{\lambda_a f: a\in G\}$
+for all $g\in G$.  To show right invariance, we need only to show that $\lim_i \lim_j \rho_x f(a_i b_j)
+= \lim_j \lim_i \rho_x f(a_i b_j)$ for sequences $\{a_i\}$ and $\{b_j\}$ in $G$.  Notice that
+$\rho_x f(a_i b_x) = \delta_{b_j x}(\lambda_{a_i}f)$.  $\lambda_{a_i}f$ has the double limit property,
+as shown in the next theorem.
+
+Let $f_1$, $f_2 \in WAP(G,X)$.  Choose a sequence $\{g_n\} \subset G$ and a subsequence $\{g_{n_k}\}\subset \{g_n\}$
+such that for all $\phi\in CB(X)^*$,
+\begin{equation}\label{quick2}
+| \phi(\lambda_{g_{n_k}}f_i) -\phi(F_i)|\rightarrow 0,\quad i=1,2,
+\end{equation}
+where $F_1$, $F_2 \in CB(X)$.  Clearly,
+\[
+|\phi(\lambda_{g_{n_k}}(f_1 + f_2)) - \phi(F_1 + F_2)| \leq |\phi(\lambda_{g_{n_k}}f_1) - \phi(F_1)|
++ |\phi(\lambda_{g_{n_k}}f_2) - \phi(F_2)| \stackrel{(\ref{quick2})}{\rightarrow} 0,
+\]
+and so $f_1+f_2 \in WAP(G,X)$.
+To see that $f_1\cdot f_2 \in WAP(G,X)$, we identify $CB(X)$ with the space $C(\Omega)$ of continuous complex-valued
+functions on the compact spectrum of the unital $C^*$-algebra $CB(X)$.  The weak convergence of
+$\lambda_{g_{n_k}}f_1$ and $\lambda_{g_{n_k}}$ to $F_1$ and $F_2$ (respectively) implies the pointwise convergence
+of $\lambda_{g_{n_k}}(f_1\cdot f_2)$ to $F_1\cdot F_2$.  Furthermore,
+$\|\lambda_{g_{n_k}}(f_1\cdot f_2)\| \leq \|f_1\|\|f_2\|$.
+The pointwise convergence and norm boundedness is equivalent to the weak sequential compactness
+in $C(\Omega)$ (see~\cite[Theorem 1.3]{eberlein}).  As a result, $f_1\cdot f_2 \in WAP(G,X)$, and so $WAP(G,X)$
+is a subalgebra of $CB(X)$.
+
+To see that $WAP(G,X)$ is norm closed, take $\{f_n\} \subset WAP(G,X)$ such that
+$\|f_n - f\| \rightarrow 0$ in $CB(X)$.  For a sequence $\{g_m\}\subset G$
+use the diagonal process to produce a subsequence $\{g_{m_k}\}$ such that for each $i$
+and each $\phi\in CB(X)^*$,
+\begin{equation}\label{wap1}
+|\phi(\lambda_{g_{m_k}}f_i) - \phi(F_i)| \rightarrow 0
+\end{equation}
+for some $F_i \in CB(X)$.  For $j>i$,
+\begin{align*}
+\|F_i - F_j\| &= \sup_{\stackrel{\scriptstyle \|\phi\|\leq 1}{\phi\in CB(X)^*}} |\langle \phi, F_j\rangle - \langle \phi, F_i\rangle |\\ &= \sup_{\stackrel{\scriptstyle \|\phi\|\leq 1}{\phi\in CB(X)^*}} \lim_k |\langle \phi, \lambda_{g_{m_k}}f_j\rangle - \langle \phi, \lambda_{g_{m_k}}f_i\rangle | \\
+&= \|f_j - f_i\|.
+\end{align*}
+This implies that $\{F_n\}$ is a norm Cauchy sequence in $CB(X)$, and as such, $F_n$ is norm convergent to a function
+$F\in CB(X)$.  For every $i$ and $\phi\in CB(X)^*$,
+\begin{align*}
+|\phi(\lambda_{g_{m_k}}f) - \phi(F)| &\leq |\phi(F) - \phi(F_i)| + |\phi(F_i) - \phi(\lambda_{g_{m_k}}f_i)| \\
+&\qquad\qquad\quad +|\phi(\lambda_{g_{m_k}}f_i) - \phi(\lambda_{g_{m_k}}f)| \\
+&\leq \|\phi\|\|F - F_i\| + |\phi(F_i) - \phi(\lambda_{g_{m_k}}f_i)| + \|\phi\|\|f_i - f\|.
+\end{align*}
+In particular, for very large $i$,
+\[
+\lim_k |\phi(\lambda_{g_{m_k}}f) - \phi(F)| \leq |\phi(F_i) - \phi(\lambda_{g_{m_k}}f_i)| \stackrel{(\ref{wap1})}{=} 0,
+\]
+proving that $WAP(G,X)$ is norm closed in $CB(X)$.
+\done
+
+\begin{theorem}
+Let $Y(G,X)$ be a norm closed, involution closed, translation invariant, linear subspace of
+$CB(X)$ containing the constant functions.  For any $f\in Y(G,X)$, the following are equivalent:
+\begin{enumerate}[(i)]
+\item $f\in WAP(G,X)$.
+\item $\{\rho_x f : x\in X\}$ is relatively weakly compact.
+\item $\lim_i \lim_j f(g_i x_j) = \lim_j \lim_i f(g_i x_j)$ for sequences $\{g_i\}\subset G$ and $\{x_j\}\subset X$,  whenever all limits exist.
+\item for every $m\in Y(G)^*$ and $n\in Y(G,X)^*$, the function $m_\rho f$ is in $Y(G,X)$, the function $n_\lambda f$ is in $Y(G)$, and $m\odot n(f) = n\dotbox m(f)$.
+\end{enumerate}
+\end{theorem}
+\proof
+(i) $\Leftrightarrow$ (iii)  Let $f\in WAP(G,X)$.  In~\cite{groth}, Grothendieck showed that
+the relatively weak compactness of $\{\lambda_g f: g\in G\}$
+is equivalent to that set having the double limit property in $\{\delta_x : x\in X\}$.  Thus,
+for sequences $\{g_i\}\subset G$ and $\{x_j\}\subset X$,
+\[
+\lim_i \lim_j \delta_{x_j} (\lambda_{g_i} f) = \lim_j \lim_i \delta_{x_j} (\lambda_{g_i} f),
+\]
+whenever all the limits exist.
+
+(iii) $\Leftrightarrow$ (ii)  Notice that for sequences $\{g_i\}$ and $\{x_j\}$ as above,
+\[
+f(g_i x_j) = \rho_{x_j} f(g_i) = \delta_{g_i}(\rho_{x_j}f),
+\]
+showing that $\{\rho_x f: x\in X\}$ has the double limit property in a bounded subset of $CB(G)^*$.  By the double limit theorem,
+this is equivalent to $\{\rho_x f: x\in X\}$ being relatively weak compact in $CB(G)$.
+
+(i) $\Rightarrow$ (iv) Let $f\in WAP(G,X)$ and $m\in \ball(Y(G)^*)$.  We will only show that $m_\rho f \in Y(G,X)$.
+The proof that $n_\lambda f \in Y(G)$ for $n\in\ball(Y(G,X)^*)$ is similar, so we safely omit the proof.
+Define a map $\phi: \ball(Y(G)^*) \rightarrow \ell^\infty(X)$ by
+\[
+\phi(m) = m_\rho f.
+\]
+$\phi$ is weak*-pointwise continuous, and by Lemma~\ref{conv}
+\[
+\phi(\ball(Y(G)^*)) = \ol{\cconv\{\lambda_g f: g\in G\}}^p.
+\]
+Now, consider a bounded function $F\in \ol{\cconv\{\lambda_g f: g\in G\}}^p$,
+\[
+F(x) = \lim_\alpha \left(\sum_{i=1}^k \xi_i \lambda_{g_i} \right)_\alpha f(x)
+\]
+where $\sum_{i=1}^k | \xi_i | \leq 1$, for all $x\in X$.  Then,
+\[
+\sum_j\zeta_j\delta_{x_j}(F) = \sum_j\zeta_j\delta_{x_j}\left(\lim_\alpha\left(\sum_{i=1}^k \xi_i \lambda_{g_i} \right)_\alpha f \right).
+\]
+Since $Y(G,X)^* = \ol{\Span\{\delta_x : x\in X\}}^{w^*}$, $F\in \ol{\cconv\{\lambda_g f: g\in G\}}^w$.
+Assuming (i) and applying a theorem~\cite[V.6.4]{d&s} of Krein-\u{S}mulian,
+\[
+\phi(\ball(Y(G)^*)) = \ol{\cconv\{\lambda_g f: g\in G\}}^w
+\]
+and is weak compact in $Y(G,X)$.  Thus $m_\rho f \in Y(G,X)$ for every $m\in \ball(Y(G)^*)$.
+
+Next we show that $m\odot n(f) = n\dotbox m(f)$ for all $m\in Y(G)^*$ and $n\in Y(G,X)^*$.
+The weak topology is stronger than the pointwise topology, and so
+the weak and pointwise topologies coincide on $\phi(\ball(Y(G)^*))$.  Thus
+$\phi$ is weak*-weak continuous from $\ball(Y(G)^*)$ to $\ell^\infty (X)$.
+We use a special case of Grothendieck's completeness theorem~\cite[Proposition A.8]{milnes}
+to extend the continuity of $\phi$ to $Y(G)^*$.
+For any $n\in Y(G,X)^*$, define a linear functional $\omega_n$ on $Y(G)^*$ by
+\[
+\omega_n(m) = \langle n, m_\rho f\rangle.
+\]
+$\omega_n$ is weak* continuous on $\ball(Y(G)^*)$ by the definition of $\phi$.
+Next, apply Grothendieck's completeness theorem to show that there exists a function $F_n\in Y(G)$
+such that for all $m\in Y(G)^*$,
+\[
+\omega_n(m) = m(F_n).
+\]
+Then $\omega_n$ is a linear weak* continuous functional on $Y(G)^*$.
+Since $n\in Y(G,X)^*$ was arbitrary, $\phi$ is weak*-weak continuous from
+$Y(G)^*$.
+%To see that $m\odot n = n\dotbox m$, consider the map
+%\[
+%\psi(m) = \langle n, m_\rho f \rangle.
+%\]
+%As $m_\alpha \rightarrow m$, $\psi(m_\alpha) \rightarrow \psi(m)$,
+%since $(m_\alpha)_\rho f \rightarrow m_\rho f$ weakly.  Thus $\psi$
+%is a weak* continuous linear functional on $Y(G)^*$.  Now $Y(G) \subset Y(G)^{**} \subset (Y(G)^*)^+$
+%and is a total subspace as such.  By~\cite[V.3.9]{d&s}, 
+%\[
+%\psi(m) = m(h_n)
+%\]
+%where $h_n \in Y(G)$.
+We claim that the mapping $n\mapsto F_n$ is weak*-weak continuous and linear.  Indeed, linearity follows
+from the linearity of $n$.  If $\{n_\alpha\}\subset Y(G,X)^*$ and $n_\alpha \rightarrow n$ weak*,
+then for any $m\in Y(G)^*$,
+\[
+m(F_{n_\alpha}) = \omega_{n_\alpha}(m) = \langle n_\alpha, m_\rho f \rangle \rightarrow \langle n, m_\rho f\rangle = m(F_n).
+\]
+We also have
+\[
+F_{\delta_x}(g) = \delta_g (F_{\delta_x}) = \omega_{\delta_x}(\delta_g) = \langle \delta_x, (\delta_g)_\rho f\rangle = \delta_x \dotbox \delta_g(f).
+\]
+%\[
+%h_{\delta_x}(g) = \delta_x \dotbox \delta_g (f).
+%\]
+The linear span of the point evaluations is equal to $Y(G,X)^*$, and thus for all $n\in Y(G,X)^*$,
+\[
+F_n (g) = n\dotbox \delta_g (f).
+\]
+That is, $F_n = n_\lambda f$, and so
+\[
+n\dotbox m (f) = \langle n, m_\rho f \rangle = m(F_n) = \langle m, n_\lambda f \rangle = m\odot n (f).
+\]
+
+(iv) $\Rightarrow$ (iii) For $f\in Y(G,X)$ and sequences $\{g_i\}\subset G$, $\{x_j\}\subset X$,
+\begin{align*}
+\lim_i \lim_j f(g_i x_j) &= \lim_i \left(\lim_j \delta_{x_j}\dotbox\delta_{g_i}(f)\right) = \lim_i \delta_x \dotbox \delta_{g_i} (f)
+= \lim_i \delta_{g_i} \odot \delta_x (f) \\
+&= \delta_g \odot \delta_x (f) = \delta_x \dotbox \delta_g (f)= \lim_j \delta_{x_j} \dotbox \delta_g (f) =\lim_j \delta_g \odot \delta_{x_j}(f)\\
+&= \lim_j \left( \lim_i \delta_{g_i} \odot \delta_{x_j} (f) \right) = \lim_j \lim_i f(g_i x_j)
+\end{align*}
+whenever all the limits exist.
+\done
+
+\begin{corollary}
+$WAP(G,X)$ is the largest involution closed, invariant, left introverted subspace of $CB(X)$
+containing the constant functions that satisfies the following:
+\begin{enumerate}[(i)]
+\item $Y(G,X)$ is introverted.
+\item $m\odot n = n\dotbox m$ for all $m\in Y(G)^*$ and $n\in Y(G,X)^*$.
+\item The mapping $(m,n) \mapsto m\odot n$ is separately continuous.
+\end{enumerate}
+\end{corollary}
+
+\begin{defn}
+A function $f\in CB(X)$ is called {\it left uniformly continuous} if the
+map $a\mapsto\lambda_a f$ from $G$ into $CB(X)$ is continuous.
+We denote the set of all such functions by $LUC(G,X)$.
+\end{defn}
+
+\begin{lemma}
+$LUC(G,X)$ is an invariant, left introverted $C^*$-subalgebra of $CB(X)$.
+\end{lemma}
+\proof
+Let $\{g_\alpha\}\subset G$ such that $g_\alpha \rightarrow g$ in $G$, and let $f\in LUC(G,X)$.
+Left invariance follows from observing that
+\[
+\|\lambda_{g_\alpha} (\lambda_a f) - \lambda_g (\lambda_a f) \| = \|\lambda_{ag_\alpha}f - \lambda_{ag}f\|
+\]
+for all $a\in G$.
+
+To show right invariance, fix $x\in X$.  Then
+\begin{align*}
+\|\ell_{g_\alpha}(\rho_x f) - \ell_g (\rho_x f)\|
+&= \sup_{a\in G} |\ell_{g_\alpha}(\rho_x f)(a) - \ell_g (\rho_x f)(a)| \\
+&= \sup_{a\in G} |f(g_\alpha ax) - f(gax)| \\
+&= \sup_{z\in G\cdot x} |f(g_\alpha z) - f(gz)| \\
+&\leq \sup_{y\in X} |f(g_\alpha y) - f(gy)| \rightarrow 0,
+\end{align*}
+since $G\cdot x \subseteq X$ and $f\in LUC(G,X)$.
+
+$n_\lambda f$ is in $LUC(G)$ for all $n\in LUC(G,X)^*$, since
+\[
+\|\ell_{g_\alpha} (n_\lambda f) - \ell_g(n_\lambda f)\| =
+\sup_{a\in G} |n(\lambda_{{g_\alpha} a}f) - n(\lambda_{ga}f)| \rightarrow 0,
+\]
+by the weak* continuity of $n$, and by the left uniform continuity of $f$.
+
+To see that $LUC(G,X)$ is a subalgebra of $CB(X)$, let $f_1$, $f_2 \in LUC(G,X)$, and
+take $\{g_\alpha\}$ as above.
+Then,
+\[
+\|\lambda_{g_\alpha}(f_1 + f_2) - \lambda_g(f_1 + f_2)\| \leq
+\|\lambda_{g_\alpha}f_1 - \lambda_g f_1\| + \|\lambda_{g_\alpha}f_2 - \lambda_g f_2\| \rightarrow 0,
+\]
+and
+\[
+\|\lambda_{g_\alpha}(f_1\cdot f_2) - \lambda_g(f_1\cdot f_2)\| \leq
+\|f_1\|\|\lambda_{g_\alpha}f_2 - \lambda_g f_2\| + \|f_2\|\|\lambda_{g_\alpha}f_1 - \lambda_g f_1\| \rightarrow 0
+\]
+by the left uniform continuity of $f_1$ and $f_2$.
+
+Finally, to see that $LUC(G,X)$ is norm closed, take $\{g_\alpha\}$ as above and let $\{f_\beta\}\subset LUC(G,X)$
+such that $f_\beta$ converges uniformly to some $F\in CB(X)$.  Then
+\[
+\|\lambda_{g_\alpha}F - \lambda_g F\| \leq \|\lambda_{g_\alpha}F - \lambda_{g_\alpha}f_\beta\| +
+\|\lambda_{g_\alpha}f_\beta - \lambda_g f_\beta\| + \|\lambda_g f_\beta - \lambda_g F\| \rightarrow 0,
+\]
+by the norm convergence of $f_\beta$ to $F$, and by the left uniform continuity of each $f_\beta$.
+Thus $F\in LUC(G,X)$.
+\done
+
+We will take a closer look at the Arens action of $LUC(G)^*$ on $LUC(G,X)^*$
+in Section~\ref{main:arens}.
+
+\begin{lemma}
+$AP(G,X) \subset LUC(G,X)$.
+\end{lemma}
+\proof
+Let $f\in AP(G,X)$.  Clearly the map $g\mapsto \lambda_g f$ is pointwise continuous.  $O_\lambda f$
+is relatively norm compact, so the norm and pointwise topologies agree on this set.
+\done
+
+\begin{lemma}
+Let $G$ be a locally compact group.  Then $WAP(G,X) \subset LUC(G,X)$.
+\end{lemma}
+\proof
+Let $f\in WAP(G,X)$.  We claim that the map $g\mapsto \lambda_g f$, from $G$ to $WAP(G,X)$
+is weakly continuous.  Indeed, if the net $\{g_\alpha\}\subset G$ converges to $g\in G$,
+then $\langle \delta_x ,\lambda_{g_\alpha}f \rangle \rightarrow \langle \delta_x, \lambda_g f\rangle$.
+Therefore $\{\lambda_{g_\alpha}f\}$ has at least one weak cluster point, $\lambda_g f$.  The relative
+weak compactness of $O_\lambda f$ implies that $\{\lambda_{g_\alpha}f\}$ converges weakly to $\lambda_g f$.
+A result of Lau~\cite[p. 151]{lau:actions} (see also~\cite[Theorem 7]{mitchell} for the proof when $X=G$) shows that the map
+$g\mapsto \lambda_g f$ is norm continuous.  For the sake of completeness we give the details of the argument.
+
+Define an action of $G$ on $M(WAP(G,X))$ by:
+\[
+\langle am, f\rangle = \langle m, \lambda_{a^{-1}} f\rangle,
+\]
+for $a\in G$, $m\in M(WAP(G,X))$ and $f\in WAP(G,X)$.  The map $(a,m) \mapsto am$ is continuous
+when $WAP(G,X)^*$ has the weak* topology.  Indeed, we show that the map is separately continuous.
+Let $\{a_\alpha\}\subset G$ such that $a_\alpha \rightarrow a \in G$.
+Then
+\[
+\langle a_\alpha m,f\rangle = \langle m, \lambda_{a_\alpha^{-1}}f\rangle \rightarrow \langle m, \lambda_{a^{-1}} f\rangle
+= \langle am, f\rangle,
+\]
+by the weak continuity of the map $g\mapsto \lambda_g f$.
+Let $\{m_\beta\}\subset M(WAP(G,X))$ such that $m_\beta \rightarrow m$ weak* in $M(WAP(G,X))$.
+Then
+\[
+\langle am_\beta, f\rangle = \langle m_\beta, \lambda_{a^{-1}} f \rangle \rightarrow \langle am,f\rangle.
+\]
+Ellis' result~\cite[Theorem 1]{ellis} implies that the action $(a,m)\mapsto am$ is jointly continuous.
+Next, suppose that $f\not\in LUC(G,X)$.  That is, suppose there exists $\epsilon > 0$ and nets $\{a_\alpha\} \subset G$,
+$\{x_\alpha\}\subset X$ with $a_\alpha \rightarrow a \in G$ such that
+\[
+\epsilon \leq |\lambda_{a_\alpha}f(x_\alpha) - \lambda_a f(x_\alpha)|
+\]
+for each $\alpha$.  Choose a subnet $\{x_{\alpha_\gamma}\}\subset \{x_\alpha\}$ such that
+$\delta_{x_{\alpha_\gamma}} \rightarrow m$ weak*.  Then,
+\begin{align*}
+0<\epsilon &\leq \lim_\gamma |\langle\delta_{x_{\alpha_\gamma}}, \lambda_{a_{\alpha_\gamma}}f\rangle
+- \langle\delta_{x_{\alpha_\gamma}}, \lambda_a f\rangle| \\
+&=\lim_\gamma |\langle a_{\alpha_\gamma}^{-1} \delta_{x_{\alpha_\gamma}}, f\rangle
+- \langle a^{-1}\delta_{x_{\alpha_\gamma}},f\rangle| = 0.
+\end{align*}
+As a result of this contradiction, $f\in LUC(G,X)$.
+\done
+
+\begin{remark}
+Easy calculations will show that the space $CB(X)$ is invariant.
+\end{remark}
+
+%\begin{lemma}
+%The following are equivalent.
+%\begin{enumerate}[(i)]
+%\item $m\in Z_{AP(G,X)}$
+%\item $m \mapsto m\odot n$ is weak*-weak* continuous
+%\item $m \mapsto m\odot n$ is weak*-weak* continuous on norm bounded subsets of $AP(G,X)^*$
+%\end{enumerate}
+%\end{lemma}
+%\proof
+%The proof of (i) $\Rightarrow$ (ii) is identical to the proof in Lemma~\ref{lau:arens}.
+
+%(ii) $\Rightarrow$ (iii) is trivial.
+
+%(iii) $\Rightarrow$ (i): As in Lemma~\ref{lau:arens}, $m_\rho f \in CB(X)$.  Next, let $g_n$
+%be a sequence in $G$.  There exists a subsequence $g_{n_k}$ such that
+%$\|\lambda_{g_{n_k}}f - F\| \rightarrow 0$ for $F\in CB(X)$.  Then,
+%\begin{align*}
+%\|\lambda_{g_{n_k}}m_\rho f - m_\rho F\| &= \sup_{x\in X}|m(\rho_{g_{n_k} x} f) - m(\rho_x F)| \\
+%&\leq \|m\| \sup_{x\in X} \sup_{h\in G} |\rho_{g_{n_k} x} f(h) - \rho_x F(h)| \\
+%&= \|m\| \sup_{x\in X} \sup_{h\in G} |\lambda_h (\lambda_{g_{n_k}} f(x) - F(x))| \\
+%&\leq \|m\| \|\lambda_{g_{n_k}}f - F\| \rightarrow 0.
+%\end{align*}
+%Thus $m_\rho f \in AP(G,X)$.  As in Lemma~\ref{lau:arens},
+%\[
+%n \dotbox m = m\odot n
+%\]
+%for any $n\in AP(G,X)^*$.
+%\done
+
+%\begin{remark}
+%Lemma~\ref{sk4.2.4} and the first statements in lemmas~\ref{sk4.2.2} and~\ref{sk4.2.3} and
+%their proofs are the work of Skantharajah (\cite{skantharajah:msc}, lemmas 4.2.4,
+%4.2.2 and 4.2.3 respectivly), who states and proves them for $X= G/H$, where $H$ is a closed
+%subgroup of $G$.
+%\end{remark}
+
+%It is also an easy exercise to see that both $AP(G,X)^*$ and $WAP(G,X)^*$ are left Banach-$LUC(G)^*$
+%modules.
+\pagebreak
+\section{Arens action of the Banach algebra \\$LUC(G)^*$ on $LUC(G,X)^*$}\label{main:arens}
+
+In this chapter we shall consider the topological center $Z_{LUC}$ of the Arens action
+of $LUC(G)^*$ on $LUC(G,X)^*$.
+Using ideas of Lau and Wong, we show that if
+%Using a technique of Lau, we show that
+%$m$ being in the topological center of $LUC(G)^*$ is equivalent to weak*-weak* continuity of the map
+%$n \mapsto m\odot n$.  Using a modified result of Wong, we also show that when
+$G$ and $X$ are locally compact, then the measure algebra
+$\mathcal{M}(G)$ is a subset of $Z_{LUC}$, and that in general $\mathcal{M}(G)\subsetneq Z_{LUC}$.
+
+Let $Z$ denote the set of all $m\in LUC(G)^*$ such that the function $m_\rho f$ is in $LUC(G,X)$
+for all $f\in LUC(G,X)$, with $m\odot n = n\dotbox m$ for all $n\in LUC(G)^*$.
+We begin by proving the following equivalence:
+\begin{lemma}\label{lau:arens}
+Let $m \in LUC(G)^*$.  The following are equivalent:
+\begin{enumerate}[(i)]
+\item $m\in Z$.
+%\item The map $n\mapsto m\odot n$ is weak*-weak* continuous.
+\item $m\in Z_{LUC}$.
+\item The map $n\mapsto m\odot n$ is weak*-weak* continuous on norm bounded subsets of $LUC(G,X)^*$.
+\end{enumerate}\end{lemma}
+
+\proof
+(i) $\Rightarrow$ (ii) Suppose $m\in Z$, and suppose $\{n_\alpha\}$ is a net in $LUC(G,X)^*$
+which converges weak* to $n$.  Then, for all $f \in LUC(G,X)$,
+\[
+m\odot n_\alpha (f) = n_\alpha \dotbox m(f) \rightarrow n\dotbox m(f) = m \odot n(f)
+\]
+
+(ii) $\Rightarrow$ (iii) is trivial.
+
+(iii) $\Rightarrow$ (i) Consider $f \in LUC(G,X)$.  First we establish that $m_\rho f$ is in $CB(X)$.
+Let $\{x_\alpha\}$ be a net in $X$
+converging to $x$.  The norm bounded net $\{\delta_{x_\alpha}\}$ converges weak* to $\delta_x$ in $LUC(G,X)^*$.
+We then have that
+\[
+m_\rho f(x_\alpha) = m(\rho_{x_{\alpha}}f) = m \odot \delta_{x_\alpha}(f)
+\longrightarrow m \odot \delta_x (f) = m_\rho f(x),
+\]
+thus $m_\rho f \in CB(X)$.
+
+Suppose that $m_\rho f \not\in LUC(G,X)$.  That is, suppose for a net $\{a_\alpha\}$ which converges to $a$ in $G$,
+\begin{equation}\label{luc1}
+0 < \epsilon \leq \|\lambda_{a_\alpha}(m_\rho f) -\, \lambda_a(m_\rho f) \|.
+\end{equation}
+Let $\{\theta_\alpha\}\subset \ball(CB(X)^*)$ such that for every $\alpha$,
+\begin{equation}\label{luc2}
+\langle \theta_\alpha,\lambda_{a_\alpha}(m_\rho f) -\, \lambda_a(m_\rho f) \rangle
+= \|\lambda_{a_\alpha}(m_\rho f) -\, \lambda_a(m_\rho f) \|.
+\end{equation}
+We claim that for $\theta \in CB(X)^*$, $f \in LUC(G,X)$, and $a \in G$,
+\[
+\langle \theta,\; \lambda_a(m_\rho f) \rangle = \langle m \odot \left(\delta_a \odot \theta\right), f\rangle.
+\]
+This claim holds for the case  $\theta = \delta_x$, $x\in X$.  Indeed, by Proposition~\ref{arens:G-inv}(iii),
+\begin{align*}
+\langle\delta_x,\;\lambda_a(m_\rho f) \rangle &= m_\rho f(ax) = m(\rho_{ax}f) = \langle m, (\delta_{ax})_\lambda f\rangle
+= m\odot\delta_{ax}(f)\\ &= \langle m\odot(\delta_a \odot \delta_x) ,f\rangle.
+\end{align*}
+Then, if $\theta \geq 0$, $\|\theta\| = 1$, apply Remark~\ref{dense} to obtain a net of
+convex combinations of point evaluations $\theta_\beta = \sum_{i=1}^k \xi_i \delta_{x_i}$, such
+that $\theta_\beta \rightarrow \theta$ weak* in $CB(G)^*$.  By (iii),
+\begin{align*}
+\langle\theta,\; \lambda_a(m_\rho f) \rangle &= \lim_\beta \langle\theta_\beta ,\; \lambda_a(m_\rho f) \rangle =
+\lim_\beta \langle m \odot \left(\delta_a \odot \theta_\beta \right), f\rangle \\
+&= \langle m \odot \left(\delta_a \odot \theta \right), f\rangle,
+\end{align*}
+which proves our claim.  From (\ref{luc1}) and (\ref{luc2}), we have that
+\begin{align}
+\epsilon &\leq \langle \theta_\alpha,\lambda_{a_\alpha}(m_\rho f) -\, \lambda_a(m_\rho f) \rangle
+         = |\langle m \odot(\delta_{a_\alpha} \odot \theta_\alpha) - m \odot(\delta_a \odot \theta_\alpha),f \rangle|\notag \\
+&\leq |\langle m \odot(\delta_{a_\alpha} \odot \theta_\alpha) - m \odot(\delta_a \odot \theta),f \rangle|\label{luc3}\\
+&\qquad\qquad\qquad + |\langle m \odot(\delta_a \odot \theta) - m \odot(\delta_a \odot \theta_\alpha),f \rangle|.\label{luc4}
+\end{align}
+We may assume that $\theta_\alpha$ converges weak* to $\theta$ in $LUC(G,X)^*$ after passing
+to a subnet, if necessary.  Furthermore, the action of $G$ on the unit ball of $LUC(G,X)^*$
+defined by $(a,\theta)\mapsto \delta_a \odot \theta$ is jointly continuous.  Indeed,
+let $\{a_\sigma\}\subset G$ and $\{\theta_\iota\}\subset LUC(G,X)^*$, $\theta_\iota \geq 1$, $\|\theta_\iota\|=1$
+such that $a_\sigma \rightarrow a$ in $G$ and $\theta_\iota \rightarrow \theta$ weak* in $LUC(G,X)^*$.  Then
+for all $f\in LUC(G,X)$,
+\[
+\delta_{a_\sigma} \odot \theta_\iota (f) = \langle \delta_{a_\sigma},(\theta_\iota)_\lambda f\rangle
+= \theta_\iota (\lambda_{a_\sigma} f) \rightarrow \theta(\lambda_a f)
+= \delta_a \odot \theta(f),
+\]
+by the definitions of $f$ and $\theta_\iota$.
+Assuming (iii) and taking $\alpha$
+sufficiently large, (\ref{luc3}) and (\ref{luc4}) are each less than $\epsilon/2$,
+which is a contradiction.  Therefore $m_\rho f \in LUC(G,X)$.
+
+To show that $n\dotbox m = m \odot n$,
+we first claim that this is true when $n = \delta_x$, $x\in X$.  Indeed, for all $f\in LUC(G,X)$,
+\begin{align*}
+(\delta_x \dotbox m)(f) &= \langle\delta_x, m_\rho f\rangle = m_\rho f(x) = m(\rho_x f) \\
+&= \langle m, (\delta_x )_\lambda f\rangle = (m\odot\delta_x )(f).
+\end{align*}
+This also holds for convex combinations of point measures.  Applying Remark~\ref{dense}
+by writing any $n \in LUC(G,X)^*$ such that $n \geq 0$ and $\|n\|=1$ as the weak* limit of a net
+of such combinations, we obtain that for every $f \in LUC(G,X)$,
+\begin{align*}
+n\dotbox m(f) &= \langle n, m_\rho f \rangle = \lim_\alpha \langle n_\alpha, m_\rho f\rangle \\
+&= \lim_\alpha m \odot n_\alpha(f) = m \odot n(f).
+\end{align*}
+Thus, $m \in Z$.
+\done
+
+When $X$ is locally compact, let $\tau_X$ denote the locally convex topology on $\mathcal{M}(X)$
+determined by the family of seminorms $\{p_f : f\in LUC(G,X)\}$, where
+$p_f (\mu) =| \int f\:d\mu|$, $\mu\in \mathcal{M}(X)$.  Each $\mu\in \mathcal{M}(X)$ defines an element in $LUC(G,X)^*$ via
+$\langle \mu, f\rangle = \int f\:d\mu$.
+Let $\tau_G$ denote the locally convex topology above for the case $X=G$.
+
+\begin{lemma}\label{wong}
+Let $G$ be a locally compact semitopological semigroup with jointly continuous action
+on a locally compact Hausdorff space X.
+\begin{enumerate}[(i)]
+\item For every $\mu\in \mathcal{M}(G)$, the map $n \mapsto {\mu}\odot n$ is weak*-weak* continuous on norm bounded subsets of $LUC(G,X)^*$.
+\item For every $n\in LUC(G,X)^*$, the map $\mu\mapsto {\mu}\odot n$ is $\tau_G$-weak* continuous.
+\item For $\mu\in \mathcal{M}(G)$, $\nu\in \mathcal{M}(X)$, ${\mu}\odot{\nu}(f) = \langle\mu * \nu, f\rangle$ for all $f\in C_0(X)$.
+\item $n\in GLIM(LUC(G,X))$ if and only if ${\mu}\odot n = n$ for any $\mu\in \mathcal{M}_0 (G) = \{\mu\in \mathcal{M}(G) : \mu \geq 0, \|\mu\| = 1\}$.
+%\item $LUC(G,X)$ has a $G$-invariant mean iff there is a net $\{\nu_\alpha \}$ in $M_0 (X)$ such that
+%$\mu * \nu_\alpha - \nu_\alpha \rightarrow 0$ in the $\tau$ topology of $M(X)$ for any $\mu \in M_0 (G)$.
+\end{enumerate}
+\end{lemma}
+
+\proof
+(i) Consider a net $\{n_\alpha \} \subset LUC(G,X)^*$ such that $n_\alpha \rightarrow n$ weak* in $LUC(G,X)^*$
+with $\|n_\alpha \|, \|n\| \leq K$.
+%\[
+%{\mu}\odot n_\alpha (f) - {\mu}\odot n(f) = \int (n_\alpha)_\lambda f\:d\mu - \int n_\lambda f\:d\mu.
+%\]
+\begin{align*}
+|(n_\alpha)_\lambda f(a) - (n_\alpha)_\lambda f(b)| &= |n_\alpha (\lambda_a f) - n_\alpha (\lambda_b f)| \leq \|n_\alpha \| \|\lambda_a f - \lambda_b f\| \\
+&\leq K \|\lambda_a f - \lambda_b f\|
+\end{align*}
+for all $a,\,b\in G$, which shows that $\{(n_\alpha)_\lambda f\}$ is a equicontinuous family of functions
+(\cite[p. 232]{kelley:top}).
+We have pointwise convergence of $(n_\alpha)_\lambda f$ to $n_\lambda f$, since
+\[
+|(n_\alpha)_\lambda f(g) - n_\lambda f(g)| = |n_\alpha (\lambda_g f) - n(\lambda_g f)| \rightarrow 0
+\]
+by the weak* convergence of $n_\alpha$ to $n$.  By~\cite[Theorem 7.15]{kelley:top}, $(n_\alpha)_\lambda$ converges uniformly
+to $n_\lambda f$ on compact subsets of $G$.
+Now, for $\mu$ with compact support $U$,
+\[
+\left|\int(n_\alpha)_\lambda f\:d\mu - \int n_\lambda f\:d\mu \right| \leq
+\int \sup_{g\in U}|(n_\alpha)_\lambda f(g) - n_\lambda f(g)|\:d\mu \rightarrow 0.
+\]
+Such measures are norm dense in $\mathcal{M}(G)$, and
+\[
+\|(n_\alpha)_\lambda f\| = \sup_{g\in G}|(n_\alpha)_\lambda f(g)| = \sup_{g\in G} |n_\alpha (\lambda_g f)| \leq \|n_\alpha \| \|f\| \leq K\|f\|.
+\]
+Thus ${\mu} \odot n_\alpha \rightarrow {\mu} \odot n$ weak* for all $\mu\in \mathcal{M}(G)$.
+
+(ii) Consider $n\in LUC(G,X)^*$.  Let $\{\mu_\alpha\}\subset\mathcal{M}(G)$ converge to $\mu$ in the $\tau_G$ topology.
+Then for all $f\in LUC(G,X)$,
+\[
+{\mu}_\alpha \odot n(f) - {\mu}\odot n (f) = \int n_\lambda f\:d\mu_\alpha - \int n_\lambda f\:d\mu \rightarrow 0,
+\]
+since $n_\lambda f \in LUC(G)$.  Therefore ${\mu}_\alpha \odot n \rightarrow {\mu}\odot n$ weak* in $LUC(G,X)^*$.
+
+(iii) Let $\mu\in\mathcal{M}(G)$ and $\nu\in\mathcal{M}(X)$.  $\mathcal{M}(G)$ has an action on $\mathcal{M}(X)$ defined by
+\[
+\iint f(gx)\:d\mu(g)d\nu(x) = \int f(gx)\:d(\mu * \nu)(gx),
+\]
+for $f\in C_0(X)$ which makes $\mathcal{M}(X)$ a Banach module over $\mathcal{M}(G)$.  From~\cite[p. 299]{gl:aa},
+$C_0 (X) \subset LUC(G,X)$.
+Thus, for $f\in C_0(X)$,
+\begin{eqnarray*}
+{\mu}\odot{\nu}(f) & = & {\mu}({\nu}_\lambda f) = \int {\nu}_\lambda f(g)\:d\mu(g) = \int{\nu}(\lambda_g f)\:d\mu(g) \\
+& = & \iint (\lambda_g f)(x)\:d\nu(x)d\mu(g) = \iint f(gx)\:d\nu(x)d\mu(g) \\
+& = & \iint f(gx)\:d\mu(g)d\nu(x) = \int f(gx) d(\mu * \nu)(gx) \\
+& = & \langle {\mu * \nu}, f\rangle.
+\end{eqnarray*}
+
+(iv) To see ``$\Leftarrow$'', notice that $\mathcal{M}_0 (G)$ contains the point
+measures $\delta_g$.  Let $\mu = \delta_g$.  If ${\mu}\odot n = n$,
+\[
+n(f) = {\delta}_g \odot n(f) = \int n_\lambda f\:d\delta_g = n(\lambda_g f)
+\]
+for all $g\in G$, which proves that $n$ is $G$-invariant.
+
+``$\Rightarrow$''
+For any $\mu\in \mathcal{M}_0(G)$, take a net $\{\mu_\alpha \}$
+of convex combinations of point evaluations such that ${\mu}_\alpha$ converges weak* to ${\mu}$ in
+$LUC(G)^*$.  Then $\mu_\alpha$ converges to $\mu$ in the $\tau_G$ topology in $\mathcal{M}(G)$.  By (ii),
+${\mu}_\alpha \odot n \rightarrow {\mu}\odot n$ weak*.  By Proposition~\ref{arens:G-inv},
+${\mu}_\alpha \odot n = n$ since $n$ is $G$-invariant.  Thus ${\mu}\odot n = n$
+for all $\mu\in \mathcal{M}_0(G)$.
+\done
+
+\begin{theorem}\label{wong2}
+Let $G$ be a locally compact semitopological semigroup with jointly continuous action
+on a locally compact Hausdorff space X. If $\mu \in \mathcal{M}(G)$, then ${\mu} \in Z_{LUC}$.
+\end{theorem}
+\proof
+By Lemma~\ref{wong} (i), the map ${\mu} \mapsto m\odot {\mu}$ is weak*-weak* continuous on norm bounded subsets
+of $LUC(G,X)^*$.  By Lemma~\ref{lau:arens}, ${\mu} \in Z_{LUC}$.
+\done
+
+The following result was suggested to me by Lau (personal communication).
+\begin{example}
+In general, $\mathcal{M}(G) \subsetneq Z_{LUC}$.  Take $G$ to be an infinite semigroup with the discrete
+topology and with a product defined by $ab = b$ for all $a$, $b\in G$.  Let $X=G$.
+Then $LUC(G) = LUC(G,X) =\ell^\infty (G),$ and $\mathcal{M}(G) = \ell^1(G)$.
+Clearly $Z_{LUC}\subseteq \ell^\infty(G)^*$.  To see that $\ell^\infty(G)^* \subseteq Z_{LUC}$,
+let $\{n_\alpha\}\subset\ell^\infty(G)^*$ such that $n_\alpha \rightarrow n$ weak*.
+Then,
+\begin{align*}
+\|(n_\alpha)_\ell f - n_\ell f\| &= \sup_{g\in G} |(n_\alpha)_\ell f(g) - n_\ell f(g)|
+= \sup_{g\in G} |n_\alpha (\ell_g f) - n(\ell_g f)| \\
+&= \sup_{g\in G} |n_\alpha (f) - n(f)| \rightarrow 0,
+\end{align*}
+and so
+\[
+m\odot n_\alpha (f) = \langle m, (n_\alpha)_\ell f\rangle \rightarrow \langle m, n_\ell f\rangle
+= m\odot n (f).
+\]
+Thus $Z_{LUC}=\ell^\infty (G)^* = \ell^1(G)^{**}$, while $\mathcal{M}(G) = \ell^1(G)$, a non-reflexive space.
+\end{example}
+
+\begin{remark}
+(a) Lau
+proved that if $G$ is either a locally compact group or a cancellative discrete semigroup
+and $X=G$, then $Z_{LUC} = \mathcal{M}(G)$ (see~\cite[Theorem 1]{lau:arens}).
+Recently, Neufang~\cite{neufang} used a different technique to prove the same result when $G$ is a locally compact
+group.
+(b) Lemma~\ref{lau:arens} and its proof are based
+on~\cite[Lemma 2]{lau:arens}.  Lemma~\ref{wong} and its proof are based on~\cite[Lemma 3.1]{wong:arens}.
+\end{remark}
+
+\section{$G$-minimal sets and supports of $G$-invariant measures}\label{main:fairchild}
+
+Let $G$ be a discrete semigroup with a left action on a discrete space $X$.
+In this setting, the spaces $LUC(G)$ and $LUC(G,X)$ are simply $\ell^\infty (G)$
+and $\ell^\infty (X)$ respectively.  We then consider the action of
+$\ell^\infty (G)^*$ on $\ell^\infty (X)^*$ as defined by the Arens action.
+
+Let $(\kappa,\beta X)$ be the Stone-\u{C}ech compactification of $X$.
+For discrete $X$, $\beta X$ is homeomorphic to the character space of $\ell^\infty(X)$.  In other words,
+we regard $\beta X$ as the space of all multiplicative
+linear functionals $\phi$ on $\ell^\infty(X)$ such that $\phi(1) = \|\phi\| = 1$, with the weak* topology
+inherited from $\ell^\infty(X)^*$.  More precisely, for $x\in X$ we identify $\kappa(x)\in\beta X$ with
+the evaluation functional $\delta_x \in \ell^\infty(X)^*$.  It is easy to see that for any subset $U\subset X$,
+the set $\ol{\{\kappa(x): x \in U\}}^{w^*}$ is weak* closed, and that its complement in open in $\beta X$.
+Thus all closed and open subsets of $\beta X$ are of the form $\ol{\{\kappa(x): x\in U\}}^{w^*}$,
+for $U\subset X$.  For convenience, we denote the weak* closure of a set $V$ by $\ol{V}$ hereafter.
+
+The action of $G$ on $X$ extends to an action of $\beta G$ on $\beta X$.
+For any $a\in G$ and $f_1,f_2 \in \ell^\infty (X)$, $\lambda_a (f_1\cdot f_2) = (\lambda_a f_1 \cdot  \lambda_a f_2)$.
+Then
+\[
+m\odot n(f_1\cdot f_2) = \langle m, n_\lambda (f_1\cdot f_2) \rangle = \langle m, n_\lambda f_1 \cdot n_\lambda f_2 \rangle
+= m\odot n(f_1) \cdot m\odot n(f_2)
+\]
+for any $m\in \beta G$, $n\in \beta X$, which shows that $m\odot n \in \beta X$.
+Since $\kappa(G)\subset \beta G$, we may also define an action of $G$ on $\beta X$ by 
+\[
+(a,n) \mapsto \kappa(a) \odot n
+\]
+for $a\in G$ and $n\in \beta X$.
+
+\begin{remark}\label{w*-w*}
+By Lemma~\ref{lau:arens} and Theorem~\ref{wong2}, the map
+\[
+n \mapsto \kappa(a) \odot n
+\]
+is weak*-weak* continuous for all $a\in G$ and $n\in \beta X$.
+\end{remark}
+
+For a fixed $n\in \beta X$ we denote the set of all products
+\[
+\kappa(G) \odot n = \{\kappa(g) \odot n : g\in G\}.
+\]
+For a fixed $g\in G$ and any subset $U\subset \beta X$  we denote the set
+of all products
+\[
+\kappa(g) \odot U = \{\kappa(g) \odot n: n\in U\}.
+\]
+If $K\subset G$ and $U\subset \beta X$, we use the following notation:
+\[
+\{\kappa(K)\}^{-1} \odot U = \{ n\in \beta X : \kappa(k) \odot n \in U\text{ for some }k\in K\}.
+\]
+If $A\subset G$ and $K$ is as above, we denote
+\[
+\{K\}^{-1}A = \{g\in G: kg\in A\text{ for some }k\in K\}.
+\]
+We have an isometric $*$-isomorphism $T$ from $C_c (\beta X) = CB(\beta X)$ onto $\ell^\infty (X)$,
+$\tilde{f}\mapsto f$, where
+\[
+f(x) = \tilde{f}(\kappa(x)),
+\]
+for $\tilde{f}\in C_c (\beta X)$ and $x\in X$.  By the Reisz representation theorem, we identify
+$CB(\beta X)^*$ with $\mathcal{M}(\beta X)$ in the usual way:
+\[
+\langle T^*n, \tilde{f}\rangle = \int\tilde{f}\:d(T^*n).
+\]
+
+\begin{proposition}\label{probmeas}
+$n\in GLIM(\ell^\infty(X))$ if and only if
+$T^* n$ is a probability measure on $\beta X$ such that
+$(T^*n)(\{\kappa(g)\}^{-1} \odot U) = (T^*n)(U)$ for all $g\in G$ and Borel sets $U\subset \beta X$.
+\end{proposition}
+\proof
+``$\Rightarrow$''
+Suppose $n\in GLIM(\ell^\infty(X))$.  $T^*n$ is a regular Borel measure for $\beta X$ such that
+$\|T^*n\| = 1$.  Let $\tilde{f}\in CB(\beta X)$, $f\geq 0$.  Then
+\[
+(T \lambda_{\kappa(g)}\tilde{f})(x) = \lambda_{\kappa(g)}\tilde{f}(\kappa(x)) = \tilde{f}(\kappa(gx)) =
+(T\tilde{f})(gx) = \lambda_g f(x),
+\]
+for any $x\in X$ and $g\in G$.
+By the invariance of $n$,
+\[
+\int\:\lambda_{\kappa(g)} \tilde{f}\:d(T^*n) = \langle T^*n, \lambda_{\kappa(g)} \tilde{f}\rangle =
+\langle n,\lambda_g f\rangle = \langle n, f\rangle = \langle T^*n, \tilde{f}\rangle = \int \tilde{f}\:d(T^*n).
+\]
+Since $\tilde{f}\in CB (\beta X)$ was arbitrary,
+\[
+T^*n(\{\kappa(g)\}^{-1} \odot U) = T^*n(U)
+\]
+for all Borel sets $U\subset \beta X$.
+
+To see ``$\Leftarrow$'', notice that
+\[
+\chi_{\{\kappa(g)\}^{-1}\odot U} = \lambda_{\kappa(g)}\chi_U.
+\]
+for any $g\in G$ and Borel set $U\subset \beta X$.  For any function $f\in\ell^\infty(X)$,
+we can approximate $\tilde{f}\in CB(\beta X)$ by simple functions.
+As a result,
+\[
+\langle n, f\rangle = \int\tilde{f}\:d(T^*n) = \int\lambda_{\kappa(g)}\tilde{f}\:d(T^*n) = \langle n, \lambda_g f \rangle.
+\]
+\done
+
+\begin{defn}
+Let $n\in \ell^\infty(X)^*$.  $T^*n$ is called $G$-{\it invariant} if $n \in$ \linebreak $GLIM(\ell^\infty(X))$.
+\end{defn}
+
+\begin{defn}
+$n \in \beta X$ is called {\it left almost $G$-periodic} if for every neighbourhood $U$ of $n$
+there exists a subset $A \subset G$ such that there is a finite subset $K \subset G$ with
+$G = \{K\}^{-1}A$ and $\kappa(A) \odot n \subset U$.  We denote the set of all almost
+$G$-periodic elements in $\beta X$ by $A^{G,X}$.
+\end{defn}
+
+\begin{defn}
+A nonempty subset $U$ of $\beta X$ is called $G$-{\it invariant} if $\kappa(g) \odot U \subset U$ for all
+$g\in G$.  $U$ is called $G$-{\it minimal} if it is closed and minimal with respect to this property.
+We denote the elements of $\beta X$ which belong to a $G$-minimal set by $B^{G,X}$.
+\end{defn}
+
+We denote by $K^{G,X}$ the elements in $\beta X$ which are in the support of some $G$-invariant
+measure.
+
+\begin{example}
+Take $n\in \beta X$.  Clearly, for all $a\in G$,
+$\kappa(a) \odot \kappa(G) \odot n \subset \kappa(G) \odot n$.  Thus, $\ol{\kappa(G) \odot n}$
+is a closed $G$-invariant set.
+\end{example}
+
+\begin{proposition}\label{fairchild2.1}
+Let $n\in GLIM(\ell^\infty(X))$.  Then $\supp (T^*n)$ is a \linebreak$G$-invariant set.
+\end{proposition}
+\proof
+Suppose $m \in \supp (T^*n)$ and let $g\in G$.  Let $\ol{\kappa(A)}$ be an open neighbourhood
+of $\kappa(g) \odot m$, so that $m\in \{\kappa(g)\}^{-1} \odot \ol{\kappa(A)}$.  By Proposition~\ref{probmeas},
+\[
+0 < T^*n (\{\kappa(g)\}^{-1} \odot \ol{\kappa(A)}) = T^*n (\ol{\kappa(A)}),
+\]
+showing that $\ol{\kappa(A)}\subset \supp (T^*n)$.  Consequently $\kappa(g) \odot m \in \supp (T^*n)$.
+\done
+
+Let $U$ be a closed subset of $\beta G$.
+In the case where $X=G$, it is well known that for all $n\in M(\ell^\infty(G))$,
+$\supp(T^*n) \subset U$ if and only if $n\in \ol{\conv U}$~\cite{wilde}.
+The same can be said when $X$ is an arbitrary discrete space.
+
+\begin{proposition}~\label{w&w}
+Let $n\in M(\ell^\infty(X))$, and let $U$ be a closed subset of $\beta X$.
+Then $\supp(T^*n) \subset U$ if and only if $n\in\ol{\conv U}$.
+\end{proposition}
+\proof
+``$\Rightarrow$''  The set $U$ is of the form $\ol{\{\delta_x: x\in V\}}$, where $V\subset X$.
+Next, write $n$ as the weak* limit of convex combinations of point evaluations to obtain the formula
+\begin{equation}\label{bx1}
+\langle T^*n, \chi_U\rangle = \langle n, \chi_V \rangle =
+\lim_\alpha\left(\sum_{i=1}^k \xi_i \delta_{x_i}\right)_\alpha(\chi_V),
+%= \lim_\alpha\left( \sum_{i=1}^k \xi_i \chi_V(x_i)\right)_\alpha
+\end{equation}
+But $(\sum_{i=1}^k \xi_i)_\alpha = 1$ for each $\alpha$.  Since $\langle T^*n, \chi_U\rangle = 1$,
+$\{\delta_{x_i}\}_\alpha \subset U$ for each $\alpha$.
+
+``$\Leftarrow$''  Notice that for $n = w^*\lim_\alpha\left(\sum_{i=1}^k \xi_i \delta_{x_i}\right)_\alpha \in\ol{\conv U}$,
+equation (\ref{bx1}) = 1.
+\done
+
+\begin{theorem}\label{fairchild3.1}
+$A^{G,X} = B^{G,X}$.
+\end{theorem}
+\proof
+``$\supset$''  Let $U\subset \beta X$ be $G$-minimal, and suppose $m\in U$.
+Clearly, $\kappa(g) \odot m \in U$ for all $g\in G$.  i.e., $\kappa(G) \odot w \subset U$.
+Since $U$ is closed, $\ol{ \kappa(G) \odot m} \subset U$.
+However, since $U$ is $G$-minimal, $U \subset \ol{ \kappa(G) \odot m}$.  Thus 
+$U = \ol{\kappa(G) \odot m}$.  Let $V$ be an open neighbourhood of $m$.  Suppose there is some
+$v\in U\backslash (\{\kappa(G)\}^{-1} \odot V)$.  Also suppose that $\kappa(g) \odot v \in \{\kappa(G)\}^{-1} \odot V$
+for some $g\in G$.  Then there exists some $h\in G$ such that
+\[
+\kappa(h) \odot \kappa(g) \odot v = \kappa(hg) \odot v \in V,
+\]
+and so $v\in \{\kappa(hg)\}^{-1} \odot V$,
+contradicting $v\not\in \{\kappa(G)\}^{-1} \odot V$.  We have $\kappa(g) \odot v \not\in \{\kappa(G)\}^{-1} \odot V$,
+and $\kappa(g) \odot v \in U$ since $U$ is $G$-minimal.  Thus $U\backslash (\{\kappa(G)\}^{-1} \odot V)$
+is a closed and $G$-invariant set.  By the $G$-minimality of $U$,
+\[
+U\cap (\kappa(G)\}^{-1} \odot V) = \emptyset,
+\]
+i.e. $m\not\in \{\kappa(G)\}^{-1} \odot V$ and
+$(\kappa(G) \odot m) \cap V = \emptyset$.  This is impossible since $V$ is open and
+$m\in U = \ol{\{\kappa(G)\}^{-1} \odot V}$.  Therefore $U\backslash (\{\kappa(G)\}^{-1} \odot V) = \emptyset$
+and $U\subset \{\kappa(G)\}^{-1} \odot V$.  Now, $U$ is closed and thus compact.  So there exists some finite
+$K\subset G$ such that
+\[
+U\subset \{\kappa(K)\}^{-1} \odot V.
+\]
+Let $A = \{g\in G: \kappa(g) \odot m \in V \}$.
+By the definition of $U$, for any $g\in G$ there must exist some $k\in K$ such that
+\[
+\kappa(k) \odot (\kappa(g) \odot m) = \kappa(kg) \odot m \in V,
+\]
+giving us that $kg\in A$.  Since $g$
+was arbitrary, we have that $G =\{K\}^{-1}A$.  Clearly, $\kappa(A) \odot m \in V$.  Thus $m\in A^{G,X}$.
+
+``$\subset$''  Suppose $m\in A^{G,X}$.  Let $U$ be a $G$-minimal subset of $\ol{\kappa(G) \odot m}$ and
+suppose that $m\not\in U$.  Then there exists an open neighbourhood $V$ of $m$ such that
+$\ol{V}\cap U = \emptyset$.  Since $m\in A^{G,X}$, there exists $A\subset G$ and finite $K\subset G$
+such that $\kappa(A) \odot m \in V$ and $G = \{K\}^{-1}A$.  Now, $k\in K$, $g\in G$ and $kg\in A$
+imply that
+\[
+\kappa(g) \odot m \in \{\kappa(k)\}^{-1} \odot (\kappa(A) \odot m) \subset \{\kappa(k)\}^{-1} \odot V.
+\]
+Hence
+\[
+\kappa(G) \odot m \subset \{\kappa(K)\}^{-1} \odot V.
+\]
+An easy application of Remark~\ref{w*-w*} show that
+\[
+\ol{\{\kappa(K)\}^{-1} \odot V} \subset \{\kappa(K)\}^{-1} \odot \ol{V}.
+\]
+Therefore
+\[
+U\subset\ol{\kappa(G) \odot m} \subset \{\kappa(K)\}^{-1} \odot \ol{V}.
+\]
+Choosing $k\in K$ such that $(\{\kappa(k)\}^{-1} \odot \ol{V}) \cap U \neq \emptyset$, we see
+that for some $n\in\beta X$,
+\[
+\kappa(k) \odot n \in \ol{V} \cap (\kappa(k) \odot U) \subset \ol{V} \cap U = \emptyset
+\]
+by the $G$-invariance of $U$.  Since this is impossible, we must have
+\[
+U \subset (\ol{\kappa(G) \odot m}) \cap U \subset (\{\kappa(K)\}^{-1} \odot \ol{V}) \cap U = \emptyset.
+\]
+This contradicts $U\neq\emptyset$.  Hence we have that $m\in U$, and we conclude that $m\in B^{G,X}$.
+\done
+
+\begin{remark}
+The proof for Theorem~\ref{fairchild3.1} is essentially due to Fairchild, who
+states the theorem with the additional condition that $G$ be left amenable
+(\cite[p. 85]{fairchild}).  The reader will notice that neither of the proofs make use
+of an invariant mean.
+\end{remark}
+
+\begin{corollary}
+When $G$ acts amenably on $X$, $A^{G,X} \subset K^{G,X}$.
+\end{corollary}
+\proof
+Let $n\in GLIM(\ell^\infty(X))$, and let $U$ be a $G$-minimal subset of $\beta X$.  Suppose that $\supp (T^*n) \subset U$.
+By Proposition~\ref{fairchild2.1}, $\supp (T^*n)$ is $G$-invariant.  Since $U$ is $G$-minimal,
+$\supp (T^*n) = U$.
+\done
+
+We now find conditions on $X$ and $G$ that imply $K^{G,X}\backslash A^{G,X} \neq \emptyset$.
+We make use of the following definition, lemma and theorem.
+
+\begin{defn}
+For $A \subset X$, let
+\[
+d(A) = \sup\:\{ m(\chi_A) : m\in GLIM(\ell^\infty(X)) \}.
+\]
+$A$ is called a {\it C-subset} for the pair  $(G,X)$ if $d(A) > 0$ and $d(\{K\}^{-1}A) < 1$ for all
+finite $K\subset G$.
+\end{defn}
+
+\begin{lemma}\label{fairchild3.3}
+Let $A \subset X$, $g\in G$.  Then
+\[
+\{\kappa(g)\}^{-1} \odot \ol{\kappa(A)} = \ol{ \{\kappa(g)\}^{-1} \odot \kappa(A)} = \ol{\kappa(\{g\}^{-1}A)}.
+\]
+\end{lemma}
+\proof
+First take $\kappa(x) \in \kappa(\{g\}^{-1}A)$.  Then $\kappa(g) \odot \kappa(x) = \kappa(gx)$, but $gx \in A$.
+Thus
+\[
+\ol{\kappa(\{g\}^{-1}A)} \subset \ol{ \{\kappa(g)\}^{-1} \odot \kappa(A)}.
+\]
+Applying Remark~\ref{w*-w*},
+\[
+\ol{ \{\kappa(g)\}^{-1} \odot \kappa(A)} \subset \{\kappa(g)\}^{-1} \odot \ol{\kappa(A)}.
+\]
+We now need only show that $\{\kappa(g)\}^{-1} \odot \ol{\kappa(A)} \subset \ol{\kappa(\{g\}^{-1}A)}$.
+Take $n\in \{\kappa(g)\}^{-1} \odot \ol{\kappa(A)}$, and let $\kappa(x_\alpha)$ be a net converging to $n$.
+By Lemma~\ref{wong},
+\[
+\kappa(gx_\alpha) = \kappa(g) \odot \kappa(x_\alpha) \rightarrow \kappa(g) \odot n \in \ol{\kappa(A)}.
+\]
+Since $\ol{\kappa(A)}$ is open in $\beta X$, there exists some $\alpha_0$ such that $\alpha > \alpha_0$
+implies $\kappa(gx_\alpha) \in \ol{\kappa(A)}$.  But $\ol{\kappa(A)}\cap\kappa(X) = \kappa(A)$.  Indeed, clearly
+$\ol{\kappa(A)}\cap\kappa(X) \supset \kappa(A)$.  Now take some $m\in \ol{\kappa(A)}\cap\kappa(X)$.
+Then $m = \kappa(x_0)$ for some $x_0 \in X$, and $m=w^*\lim\kappa(a_\gamma)$ for a net $\{a_\gamma\}\subset A$.
+In particular,
+\[
+|\langle m,\chi_{x_0}\rangle - \langle \kappa(a_\gamma), \chi_{x_0}\rangle | = |\chi_{x_0}(x_0) - \chi_{x_0}(a_\gamma)| \rightarrow 0.
+\]
+i.e. for large values of $\gamma$, $x_0 = a_\gamma \in A$, showing that $m \in \kappa(A)$.
+Hence $\kappa(gx_\alpha) \in \kappa(A)$, and so $x_\alpha \in \{g\}^{-1}A$.
+Then
+\[
+n  = w^* \lim \kappa(x_\alpha) \in \kappa(\{g\}^{-1}A) \subset \ol{\kappa(\{g\}^{-1}A)}.
+\]
+\done
+
+\begin{theorem}\label{fairchild2.0}
+If left amenable $G$ acts on $X$ and $U$ is a closed $G$-invariant
+subset of $\beta X$, then for each $n\in U$ and $m\in LIM(\ell^\infty(G))$, $T^*(m\odot n)$
+is a $G$-invariant measure with $\supp (T^*(m\odot n)) \subset U$.
+\end{theorem}
+\proof
+To the see that $T^*(m\odot n)$ is $G$-invariant, we need only check that $m\odot n$ is
+$G$-invariant.  Let $f\in \ell^\infty (X)$, $g\in G$.  Then,
+\[
+m\odot n(\lambda_g f) = \langle m, n_\lambda (\lambda_g f) \rangle = \langle m,\,\lambda_g(n_\lambda f) \rangle
+= \langle m, n_\lambda f \rangle = m\odot n(f).
+\]
+Let $\{m_\alpha\}$ be a net of convex combinations of point measures with $m_\alpha \rightarrow m$ weak*.
+By the $G$-invariance of $U$, $m_\alpha \odot n \in \conv U$ for each $\alpha$.  But then
+\[
+m\odot n = \lim_\alpha m_\alpha \odot n \in \ol{\conv U}.
+\]
+By Proposition~\ref{w&w}, $\supp(T^*(m\odot n)) \subset U$.
+\done
+
+\begin{theorem}
+If $G$ is left amenable and $(G,X)$ has a C-subset $A$, then $\ol{\kappa(A)}\cap\ol{A^{G,X}} = \emptyset$ and
+$\ol{\kappa(A)}\cap K^{G,X} \neq \emptyset$.  Thus $A^{G,X} \subsetneq K^{G,X}$.
+\end{theorem}
+\proof
+First suppose that there exists some $n \in \ol{\kappa(A)}\cap A^{G,X}$.  Notice that $\ol{\kappa(A)}$
+is an open set, and so, since $n\in A^{G,X}$, there exists a subset $B\subset G$ and a
+finite $K\subset G$ such that $G=\{K\}^{-1}B$ and $\kappa(B) \odot n \subset \ol{\kappa(A)}$.
+By Lemma~\ref{fairchild3.3}
+\begin{align*}
+\kappa(G) \odot n &= \kappa(\{K\}^{-1}B) \odot n \subset \{\kappa(K)\}^{-1} \odot \kappa(B) \odot n\\
+& \subset \{\kappa(K)\}^{-1} \odot \ol{\kappa(A)} = \ol{\kappa(\{K\}^{-1}A)},
+\end{align*}
+which gives us that $\ol{\kappa(G) \odot n} \subset \ol{\kappa(\{K\}^{-1}A)}$.
+By Proposition~\ref{arens:G-inv}, for any  $l\in \ol{\kappa(G) \odot n}$ and any $m\in LIM(\ell^\infty(G))$,
+$m\odot l \in GLIM(\ell^\infty(X))$.
+Apply Theorem~\ref{fairchild2.0} to see that 
+\[
+\supp(T^*(m\odot l)) \subset \ol{\kappa(G) \odot n} \subset \ol{\kappa(\{K\}^{-1}A)}.
+\]
+i.e. $T^*(m\odot l) (\chi_{\ol{\kappa(\{K\}^{-1}A)}}) = 1$, contradicting that
+$A$ is a C-subset for $(G,X)$.  $\ol{\kappa(A)}$ is open, and so
+\[
+\ol{\kappa(A)} \cap A^{G,X} = \ol{\kappa(A)} \cap \ol{A^{G,X}} = \emptyset.
+\]
+Next, notice that for some $\phi \in GLIM(\ell^\infty(X))$,
+\[
+0 < \phi(\chi_A) = \phi (T \chi_{\kappa(A)}) = (T^*\phi)(\chi_{\kappa(A)}).
+\]
+Therefore there exists some $a\in A$ such that $\kappa(a)$ is in the support of $T^*\phi$,
+a $G$-invariant measure.  We conclude that $\ol{\kappa(A)} \cap K^{G,X} \neq \emptyset$,
+\done
+
+We next consider the case when $(G,X)$ has no C-subsets.
+
+\begin{proposition}
+Let $G$ be left amenable.  Suppose that the pair $(G,X)$ has no C-subsets.
+Then $K^{G,X} \subset \ol{A^{G,X}}$.
+\end{proposition}
+\proof
+Take $n\in K^{G,X}$, and let $U$ be an open neighbourhood of $n$.  There exists a subset
+$A\subset X$ such that $n\in \ol{\kappa(A)} \subset U$.  Consequently there exists $\phi\in GLIM(\ell^\infty(X))$
+such that $\phi(\chi_A) > 0$.  $A$ is not a C-subset for $(G,X)$, and so there exists a finite
+subset $K\subset G$ such that $d(\{K\}^{-1}A) = 1$.  By Remark~\ref{w*-w*} and
+Proposition~\ref{probmeas}, there exists $m\in GLIM(\ell^\infty(X))$
+such that
+\[
+\supp(T^*m) \subset \ol{\kappa(\{K\}^{-1}A)} \subset \{\kappa(A)\}^{-1} \odot \ol{\kappa(A)}.
+\]
+By Proposition~\ref{fairchild2.1}, there exists
+a $G$-minimal set $V\subset \{\kappa(K)\}^{-1} \odot \ol{\kappa(A)}$.
+Choose $l\in V$ and $k\in K$ such that $\kappa(k)\odot l \in \ol{\kappa(A)} \subset U$.
+Then,
+\[
+\kappa(k)\odot l \in U\cap(\kappa(k)\odot V) = U\cap V
+\]
+by the $G$-invariance of $V$.  By Theorem~\ref{fairchild3.1},
+\[
+U\cap B^{G,X} = U\cap A^{G.X} \neq \emptyset.
+\]
+Since $U$ was arbitrary, $n\in A^{G,X}$.
+\done
+
+\begin{remark}
+Section~\ref{main:fairchild} is an adaptation of a paper by Fairchild~\cite{fairchild},
+in which it is shown that the set of almost periodic points of $\beta G$
+is exactly the set of elements which belong to a minimal set, and that
+if $(G,G)$ contains a C-subset, then there exist non almost periodic
+points of $\beta G$ that are in the support of some invariant measure
+for $\beta G$.
+
+\end{remark}

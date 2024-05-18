@@ -1,0 +1,99 @@
+%===========================================================================%
+% To produce a thesis.dvi file, run this file through LaTeX:
+%
+%        latex thesis.tex
+%
+% LaTeX has to be run at least twice in order to get the cross references 
+% and citations correct.
+%
+% mathesis.sty: the tex style file for a thesis style of Department of
+%               Mathematical Sciences, The University of Alberta
+%               (traditional format styled thesis)
+%
+%      def.sty: Put tex macros defined by yourself in this file
+%===========================================================================%
+%\documentclass[12pt,leqno]{report}
+\documentclass[12pt]{report}
+\setlength{\textheight}{8.5in}
+\setlength{\textwidth}{5.5in} 
+\setlength{\topmargin}{-1.3cm}
+%\setlength{\oddsidemargin}{0in}
+%\setlength{\evensidemargin}{0in}
+% Use 1.37 times the normal baseline-to-baseline skip
+\renewcommand{\baselinestretch}{1.37}
+
+\usepackage{mathesis, def, enumerate, amsmath, amsfonts, amssymb}
+\usepackage{wasysym}
+
+% Try kdvi inverse search feature!
+%\usepackage[active]{srcltx}
+
+% no more writing the TOC
+%\nofiles
+
+% \includeonly{chapter1} % only compile the included files
+
+\begin{document}
+\title{Actions of semitopological semigroups on locally compact Hausdorff spaces}
+\author{Alan Glenn Kydd}
+\gradyear{2005}
+\convocationdate{Spring, 2005}
+\degree{Master of Science}
+\examchair{Dr. Vaclav Zizler}
+\supervisor{Dr. Anthony To-Ming Lau}
+%\cosupervisor{your co-supervisor} % if applicable
+\firstcommitteemember{Dr. Helmy Sherif}
+\firstcommitteememberdept{Physics}
+%\secondcommitteemember{???}
+%\thirdcommitteemember{???}
+%\fourthcommitteemember{???}
+%\fifthcommitteemember{???}
+
+% specify the field of study
+\fieldofstudy{Mathematics} % optional
+
+% input the file name in which the quote is contained, e.g., quote.tex
+%\fileforquote{quote} % optional
+
+% input the file name in which dedication is contained, e.g., dedi.tex
+%\filefordedication{dedi}
+
+% input the file name in which abstract is contained, e.g., abs.tex
+\fileforabstract{abs}
+
+% switch off  listoffigures if there is not a list of figures
+\nolistoffigures
+
+% switch off listoftables if there is not a list of tables
+\nolistoftables
+
+% input a file name for preface
+%\fileforpreface{preface} % optional
+
+% input a file name for acknowledgement, e.g., ackn.tex
+\fileforacknowledgement{ackn} % optional
+
+% produce prefatory pages
+\prefatorypages
+
+% Body of Text
+\include{chapter1}
+\include{chapter2}
+\include{chapter3}
+\include{chapter4}
+
+% Bibliography
+% use the nocite command to list all entries in the bibliography
+\nocite{*}
+%\include{ref}
+\cleardoublepage
+\addcontentsline{toc}{chapter}{Bibliography}
+\bibliography{bib}
+\bibliographystyle{amsplain}
+
+% Appendices (if any)
+%\appendix
+%\include{append1}
+%\include{append2}
+
+\end{document}
